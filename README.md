@@ -5,8 +5,10 @@ Web application for psychoterapy office. Contains:
   - admin access modeule: to manage client accounts
   
 Technologies used:
-- Spring boot
-- Vaadin
-- Liquibase
+- spring boot
+- spring security
+- thymyleaf
+- bootstrap
+- liquibase
 - Hibernate
--  to be added later
+- postgresql
