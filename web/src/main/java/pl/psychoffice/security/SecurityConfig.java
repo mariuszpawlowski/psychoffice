@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -28,11 +29,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/resources/**", "/signup", "/about", "/").permitAll()
+                .antMatchers("/signup", "/about", "/").permitAll()
+                .antMatchers("/css/**").permitAll()
+                .antMatchers("/img/**").permitAll()
+                .antMatchers("/img/demo/**").permitAll()
+                .antMatchers("/js/**").permitAll()
+                .antMatchers("/fonts/**").permitAll()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/manage/**").hasRole("MANAGER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin();
+    }
+
+    @Override
+    public void configure(WebSecurity security) throws Exception {
+        security.ignoring().antMatchers("/img/**", "/css/**", "/fonts/**", "/js/**");
     }
 }

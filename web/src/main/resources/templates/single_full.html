@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 
 <head>
     <meta charset="UTF-8"/>
@@ -12,19 +12,12 @@
     <!-- CSS -->
     <link href="css/preload.css" rel="stylesheet"/>
 
+
     <!-- Compiled in vendors.js -->
 
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/bootstrap-switch.min.css" rel="stylesheet" />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/animate.min.css" rel="stylesheet" />
-    <link href="css/slidebars.min.css" rel="stylesheet" />
-    <link href="css/lightbox.css" rel="stylesheet" />
-    <link href="css/jquery.bxslider.css" rel="stylesheet" />
-    <link href="css/buttons.css" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/vendors.css}" href="css/vendors.css"/>
 
 
-    <link href="css/vendors.css" rel="stylesheet"/>
     <link href="css/syntaxhighlighter/shCore.css" rel="stylesheet" />
 
     <link href="css/style-blue.css" rel="stylesheet" title="default"/>
@@ -360,7 +353,7 @@
         <div class="col-md-12">
             <section>
                 <h2 class="page-header no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h2>
-                <img src="img/demo/img_full.jpg" class="img-responsive imageborder" alt="Image"/>
+                <img th:src="@{img/demo/img_full.jpg}" class="img-responsive imageborder" alt="Image"/>
                 <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>. Laborum, quasi voluptate facilis fuga veniam quia nam vel cumque sequi dolorem vitae eius commodi ea adipisci distinctio <strong>delectus molestias porro</strong> unde consequuntur <a href="#">perferendis repudiandae aut ab ex possimus</a> rerum expedita obcaecati eveniet repellat ipsa iste. Sapiente, dolor, error, nobis odit laudantium repellat maxime dolores unde officia distinctio itaque cupiditate voluptatum saepe adipisci quas quidem vero nam nesciunt beatae corrupti ratione nemo eveniet architecto fugiat neque assumenda modi eaque aperiam a incidunt cumque veritatis libero sed. Hic, ipsum, ipsa, officia, minima veritatis explicabo nulla at veniam soluta accusamus qui quibusdam repellat corrupti eaque dignissimos ab a. Doloremque, dolor, impedit, vero animi alias temporibus blanditiis in harum molestiae obcaecati repudiandae culpa assumenda laudantium?</p>
                 <blockquote class="blockquote-big">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante nisi vel augue quam semper libero.</p>
