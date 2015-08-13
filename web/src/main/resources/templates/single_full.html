@@ -12,14 +12,9 @@
     <!-- CSS -->
     <link href="css/preload.css" rel="stylesheet"/>
 
-
     <!-- Compiled in vendors.js -->
-
     <link rel="stylesheet" th:href="@{/css/vendors.css}" href="css/vendors.css"/>
-
-
     <link href="css/syntaxhighlighter/shCore.css" rel="stylesheet" />
-
     <link href="css/style-blue.css" rel="stylesheet" title="default"/>
     <link href="css/width-full.css" rel="stylesheet" title="default"/>
 
@@ -46,16 +41,8 @@
             <p class="animated fadeInRight">Clean and elegant theme</p>
         </div>
         <nav class="top-nav">
-            <ul class="top-nav-social hidden-sm">
-                <li><a href="#" class="animated fadeIn animation-delay-6 rss"><i class="fa fa-rss"></i></a></li>
-                <li><a href="#" class="animated fadeIn animation-delay-7 twitter"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#" class="animated fadeIn animation-delay-8 facebook"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#" class="animated fadeIn animation-delay-9 google-plus"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#" class="animated fadeIn animation-delay-9 instagram"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="#" class="animated fadeIn animation-delay-8 vine"><i class="fa fa-vine"></i></a></li>
-                <li><a href="#" class="animated fadeIn animation-delay-7 linkedin"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#" class="animated fadeIn animation-delay-6 flickr"><i class="fa fa-flickr"></i></a></li>
-            </ul>
+
+            <ul th:replace="fragments/header :: top_nav"></ul>
 
             <div class="dropdown animated fadeInDown animation-delay-11">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Login</a>
@@ -118,6 +105,9 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                <li >
+                    <a href="bla.html">No dropdown</a>
+                </li>
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Home</a>
                      <ul class="dropdown-menu dropdown-menu-left">
