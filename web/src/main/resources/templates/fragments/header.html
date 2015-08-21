@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+
+</head>
+<body>
+
+<header id="header-full-top" class="hidden-xs header-full" th:fragment="header">
+    <div class="container">
+        <div class="header-full-title">
+            <h1 class="animated fadeInRight"><a href="/">P<span>o</span>M<span>oc</span></a></h1>
+            <p class="animated fadeInRight">gabinet psychoterapii</p>
+        </div>
+        <nav class="top-nav">
+
+            <ul th:replace="fragments/header_elements :: top_nav"></ul>
+
+            <div th:replace="fragments/header_elements :: login_form"></div>
+
+            <div th:replace="fragments/header_elements :: search_form"></div>
+        </nav>
+    </div> <!-- container -->
+</header> <!-- header-full -->
+</body>
+</html>

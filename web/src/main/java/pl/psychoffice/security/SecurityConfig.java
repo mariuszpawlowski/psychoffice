@@ -29,7 +29,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/signup", "/about", "/").permitAll()
+                .antMatchers("/", "/clientHome", "/onlineConsultation", "/onlineTherapy", "/onlineTests",
+                        "/directConsultation", "/directPsychotherapy", "/directPsychotherapy",
+                        "/companiesDiagnosis", "/companiesTraining", "/companiesNegotiations",
+                        "/prices",
+                        "/aboutBiography", "/aboutQualifications", "/aboutHow", "/aboutPublications",
+                        "/blog", "/faq", "/contact").permitAll()
                 .antMatchers("/css/**").permitAll()
                 .antMatchers("/img/**").permitAll()
                 .antMatchers("/img/demo/**").permitAll()
