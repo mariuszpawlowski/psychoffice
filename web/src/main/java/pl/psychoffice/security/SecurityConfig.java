@@ -50,12 +50,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .formLogin().failureUrl("/login?error")
-                .defaultSuccessUrl("/")
+                .successHandler()
                 .loginPage("/login")
                 .permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
                 .permitAll();
+
+        http.csrf().disable();
 
     }
 
