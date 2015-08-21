@@ -1,6 +1,7 @@
 package pl.psychoffice.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -8,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
@@ -22,9 +24,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("u").password("u").roles("USER").and()
-                .withUser("a").password("a").roles("ADMIN").and()
-                .withUser("manager").password("manager").roles("MANAGER");
+                .withUser("u").password("u").roles(Roles.USER).and()
+                .withUser("a").password("a").roles(Roles.ADMIN).and();
+
 
 
     }
@@ -43,14 +45,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/img/demo/**").permitAll()
                 .antMatchers("/js/**").permitAll()
                 .antMatchers("/fonts/**").permitAll()
-                .antMatchers("/admin").hasRole("ADMIN")
-                .antMatchers("/clientHome").hasRole("USER")
-                .antMatchers("/manage/**").hasRole("MANAGER")
+                .antMatchers("/admin").hasRole(Roles.ADMIN)
+                .antMatchers("/clientHome").hasRole(Roles.USER)
                 .anyRequest().authenticated();
 
         http
                 .formLogin().failureUrl("/login?error")
-                .successHandler()
+                .successHandler(authenticationSuccessHandler())
                 .loginPage("/login")
                 .permitAll()
                 .and()
@@ -59,6 +60,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
 
+    }
+
+    @Bean
+    public AuthenticationSuccessHandler authenticationSuccessHandler() {
+        return new MyAuthenticationSuccessHandler();
     }
 
     @Override

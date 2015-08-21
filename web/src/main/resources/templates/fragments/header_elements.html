@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 
 </head>
@@ -120,6 +120,15 @@
                         <li><a href="/aboutQualifications">Kwalifikacje</a></li>
                         <li><a href="/aboutHow">Podejście</a></li>
                         <li><a href="/aboutPublications">Publikacje naukowe</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" sec:authorize="hasRole('user')">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Konto klienta</a>
+                    <ul class="dropdown-menu dropdown-menu-left">
+                        <li><a href="/aboutBiography">Start</a></li>
+                        <li><a href="/aboutQualifications">Sesje</a></li>
+
+
                     </ul>
                 </li>
                 <li >
