@@ -20,43 +20,44 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private static final String[] STATIC_PAGES = new String[]{"/", "/clientHome", "/onlineConsultation", "/onlineTherapy", "/onlineTests",
+            "/directConsultation", "/directPsychotherapy", "/directPsychotherapy", "/companiesDiagnosis", "/companiesTraining", "/companiesNegotiations",
+            "/prices", "/aboutBiography", "/aboutQualifications", "/aboutHow", "/aboutPublications", "/blog", "/faq", "/contact"};
+
+    private static final String[] STATIC_RESOURCES = new String[]{"/css/**", "/img/**", "/img/demo/**", "/js/**", "/fonts/**"};
+    private static final String[] ADMIN_PAGES = new String[]{"/admin", "admin/a"};
+    private static final String[] CLIENT_PAGES = new String[]{"/clientHome", "clientHome/a"};
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
                 .withUser("u").password("u").roles(Roles.USER).and()
                 .withUser("a").password("a").roles(Roles.ADMIN).and();
-
-
-
     }
 
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/clientHome", "/onlineConsultation", "/onlineTherapy", "/onlineTests",
-                        "/directConsultation", "/directPsychotherapy", "/directPsychotherapy",
-                        "/companiesDiagnosis", "/companiesTraining", "/companiesNegotiations",
-                        "/prices",
-                        "/aboutBiography", "/aboutQualifications", "/aboutHow", "/aboutPublications",
-                        "/blog", "/faq", "/contact").permitAll()
-                .antMatchers("/css/**").permitAll()
-                .antMatchers("/img/**").permitAll()
-                .antMatchers("/img/demo/**").permitAll()
-                .antMatchers("/js/**").permitAll()
-                .antMatchers("/fonts/**").permitAll()
-                .antMatchers("/admin").hasRole(Roles.ADMIN)
-                .antMatchers("/clientHome").hasRole(Roles.USER)
-                .anyRequest().authenticated();
-
-        http
-                .formLogin().failureUrl("/login?error")
-                .successHandler(authenticationSuccessHandler())
-                .loginPage("/login")
-                .permitAll()
+                .antMatchers(STATIC_PAGES).permitAll()
+                .antMatchers(STATIC_RESOURCES).permitAll()
+                .antMatchers(ADMIN_PAGES).hasRole(Roles.ADMIN)
+                .antMatchers(CLIENT_PAGES).hasRole(Roles.USER)
+                .anyRequest().authenticated()
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
-                .permitAll();
+                .formLogin()
+                    .failureUrl("/login?error")
+                    .successHandler(authenticationSuccessHandler())
+                    .loginPage("/login")
+                    .permitAll()
+                    .and()
+                .logout()
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/")
+                    .invalidateHttpSession(true)
+                    .deleteCookies("JSESSIONID")
+                    .permitAll()
+                    .and();
 
         http.csrf().disable();
 

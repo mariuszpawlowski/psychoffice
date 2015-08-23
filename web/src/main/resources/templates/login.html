@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
     <title>PoMoc</title>
 
-    <link rel="shortcut icon" href="img/favicon.png" />
+    <link rel="shortcut icon" href="img/favicon.png"/>
     <meta name="description" content=""/>
 
     <link href="css/preload.css" rel="stylesheet"/>
     <link href="css/vendors.css" rel="stylesheet"/>
-    <link href="css/syntaxhighlighter/shCore.css" rel="stylesheet" />
+    <link href="css/syntaxhighlighter/shCore.css" rel="stylesheet"/>
     <link href="css/style-blue.css" rel="stylesheet" title="default"/>
     <link href="css/width-full.css" rel="stylesheet" title="default"/>
 
@@ -37,39 +38,47 @@
             <div class="row">
                 <div class="col-xs-offset-4 col-xs-4">
 
-        <form th:action="@{/login}" method="post">
-            <h4>Formularz logowania</h4>
+                    <form th:action="@{/login}" method="post">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        <h4>Formularz logowania</h4>
 
-            <div class="form-group">
-                <div class="input-group login-input">
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" class="form-control" name="username" placeholder="nazwa użytkownika"/>
-                </div>
-                <br/>
-                <div class="input-group login-input">
-                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <input type="password" name="password" class="form-control" placeholder="hasło"/>
-                </div>
-                <div class="checkbox pull-left">
-                    <!-- <label>
-                        <input type="checkbox"/> Zapamiętaj mnie
-                    </label>  -->
-                </div>
-                <br/>
-                <button type="submit" class="btn btn-ar btn-primary pull-right">Zaloguj</button>
-                <div class="clearfix"></div>
-            </div>
-        </form>
+                        <div class="form-group">
+                            <div class="input-group login-input">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control" name="username"
+                                       placeholder="nazwa użytkownika"/>
+                            </div>
+                            <br/>
+
+                            <div class="input-group login-input">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" name="password" class="form-control" placeholder="hasło"/>
+                            </div>
+                            <div class="checkbox pull-left">
+                                <!-- <label>
+                                    <input type="checkbox"/> Zapamiętaj mnie
+                                </label>  -->
+                            </div>
+                            <br/>
+                            <button type="submit" class="btn btn-ar btn-primary pull-right">Zaloguj</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                    <div th:if="${param.error}">
+                        Nieprawidłowy login lub hasło. Spróbuj ponownie lub skontaktuj się z nami.
                     </div>
                 </div>
             </div>
+        </div>
 
         <aside th:replace="fragments/footer :: footer_widgets"></aside>
 
         <footer th:replace="fragments/footer :: footer"></footer>
 
-    </div> <!-- boxed -->
-</div> <!-- sb-site -->
+    </div>
+    <!-- boxed -->
+</div>
+<!-- sb-site -->
 
 <div th:replace="fragments/sidebar :: sidebar"></div>
 <div th:replace="fragments/footer :: linkt_top"></div>
