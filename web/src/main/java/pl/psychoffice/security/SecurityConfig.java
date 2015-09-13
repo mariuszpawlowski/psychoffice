@@ -29,8 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/clientHome", "/onlineConsultation", "/onlineTherapy", "/onlineTests",
-                        "/directConsultation", "/directPsychotherapy", "/directPsychotherapy",
+                .antMatchers("/", "/clientHome", "/onlineConsultation", "/onlineTherapy",
+                        "/directConsultation", "/directDiagnosis", "/directIndividual", "/directPair", "/directGroup",
                         "/companiesDiagnosis", "/companiesTraining", "/companiesNegotiations",
                         "/prices",
                         "/aboutBiography", "/aboutQualifications", "/aboutHow", "/aboutPublications",

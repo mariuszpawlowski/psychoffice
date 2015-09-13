@@ -19,24 +19,29 @@ public class ServiceController {
         return "services/onlineTherapy";
     }
 
-    @RequestMapping("/onlineTests")
-    String onlineTests(){
-        return "services/onlineTests";
-    }
-
     @RequestMapping("/directConsultation")
     String directConsultation(){
         return "services/directConsultation";
     }
 
-    @RequestMapping("/directPsychotherapy")
-    String directPsychotherapy(){
-        return "services/directPsychotherapy";
+    @RequestMapping("/directIndividual")
+    String directIndividual(){
+        return "services/directIndividual";
     }
 
     @RequestMapping("/directDiagnosis")
     String directDiagnosis(){
         return "services/directDiagnosis";
+    }
+
+    @RequestMapping("/directPair")
+    String directPair(){
+        return "services/directPair";
+    }
+
+    @RequestMapping("/directGroup")
+    String directGroup(){
+        return "services/directGroup";
     }
 
     @RequestMapping("/companiesDiagnosis")
