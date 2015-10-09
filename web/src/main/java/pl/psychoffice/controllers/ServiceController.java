@@ -40,7 +40,7 @@ public class ServiceController {
     }
 
     @RequestMapping("/directGroup")
-    String directGroup(){
+    String directGroup2(){
         return "services/directGroup";
     }
 
