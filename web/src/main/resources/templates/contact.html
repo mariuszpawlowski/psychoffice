@@ -48,11 +48,66 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-xs-12">
-                    <p class="slogan text-center animated bounceInLeft animation-delay-12">Kontakt blabla.</p>
-                    <h1 class="right-line no-margin-top">Jakiś tam nagłówek</h1>
+                <div class="col-md-12">
+                    <h2 class="section-title no-margin-top">Wyślij wiadomość</h2>
+                </div>
+                <div class="col-md-8">
+                    <section>
+                        <p>Wpisz wiadomość w poniższy formularz, odpowiemy tak szybko jak tylko to możliwe.</p>
+
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="InputName">Imię i nazwisko</label>
+                                <input type="email" class="form-control" id="InputName"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="InputEmail1">Adres e-mail</label>
+                                <input type="email" class="form-control" id="InputEmail1"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="InputMessage">Wiadomość</label>
+                                <textarea class="form-control" id="InputMessage" rows="8"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-ar btn-primary">Wyślij</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </section>
+                </div>
+                <div class="col-md-4">
+                    <section>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"><i class="fa fa-envelope-o"></i> Dodatkowe informacje</div>
+                            <div class="panel-body">
+                                <address>
+                                    <h4 class="section-title no-margin-top">Kontakt</h4>
+                                    <strong>Janina Nowak</strong><br/>
+                                    Ul. Książąt Pomorskich 3<br/>
+                                    Sopot<br/>
+                                    <abbr title="Phone">tel:</abbr> (123) 456-7890 <br/>
+                                    e-mail: <a href="#">mail[at]psychoffice.pl</a>
+                                </address>
+                                <h4 class="section-title no-margin-top">Godziny otwarcia</h4>
+                                <ul class="list-unstyled">
+                                    <li><strong>Poniedziałek - piątek:</strong> 9.00 - 17.00</li>
+                                    <li><strong>Sobota:</strong> 9.00 - 14.00</li>
+                                    <li><strong>Niedziela:</strong> Nieczynne</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
+
+            <hr class="dotted"/>
+
+            <div class="well well-sm">
+                <div class="well well-sm">
+                    <iframe width="100%" height="400" src="https://www.google.com/maps/embed/v1/place?q=Ksi%C4%85%C5%BC%C4%85t%20Pomorskich%203%2C%20Sopot%2C%20Poland&amp;key=AIzaSyA68SN7UAeCcY9i7hCAwOecVlXUc0dTfIM"></iframe>
+                </div>
+            </div>
+
+
+
         </div>
 
         <aside th:replace="fragments/footer :: footer_widgets"></aside>

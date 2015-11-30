@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] ADMIN_PAGES = new String[]{"/admin", "admin/a"};
     private static final String[] CLIENT_PAGES = new String[]{"/clientHome", "clientHome/a"};
 
-  /*  @Autowired
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
@@ -44,10 +44,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(STATIC_PAGES).permitAll()
-                .antMatchers(STATIC_RESOURCES).permitAll()
-                .antMatchers(ADMIN_PAGES).hasRole(Roles.ADMIN)
-                .antMatchers(CLIENT_PAGES).hasRole(Roles.USER)
+                .antMatchers("/", "/clientHome", "/onlineConsultation", "/onlineTherapy",
+                        "/directConsultation", "/directDiagnosis", "/directIndividual", "/directPair", "/directGroup",
+                        "/companiesDiagnosis", "/companiesTraining", "/companiesNegotiations",
+                        "/prices",
+                        "/aboutBiography", "/aboutQualifications", "/aboutHow", "/aboutPublications",
+                        "/blog", "/faq", "/contact").permitAll()
+                .antMatchers("/css/**").permitAll()
+                .antMatchers("/blog/**").permitAll()
+                .antMatchers("/img/**").permitAll()
+                .antMatchers("/img/demo/**").permitAll()
+                .antMatchers("/js/**").permitAll()
+                .antMatchers("/fonts/**").permitAll()
+                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/manage/**").hasRole("MANAGER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -76,25 +86,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity security) throws Exception {
         security.ignoring().antMatchers("/img/**", "/css/**", "/fonts/**", "/js/**");
-    }*/
+    }
 
     @Autowired
     private UserDetailsService userDetailsService;
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .and().formLogin()
-                .loginPage("/login")
-                .failureUrl("/login?error")
-                .usernameParameter("email")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .permitAll();
-    }
+    
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {

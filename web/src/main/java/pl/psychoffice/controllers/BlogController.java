@@ -13,4 +13,9 @@ public class BlogController {
     String blog(){
         return "blog";
     }
+
+    @RequestMapping("/blog/1")
+    String blog1(){
+        return "blog/blog1";
+    }
 }

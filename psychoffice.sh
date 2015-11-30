@@ -1,6 +1,6 @@
 #!/bin/sh
 SERVICE_NAME=PsychofficeService
-PATH_TO_JAR=/opt/psychoffice-0.0.1-SNAPSHOT.jar
+PATH_TO_JAR=/var/psychoffice-0.0.1-SNAPSHOT.jar
 PID_PATH_NAME=/tmp/PsychofficeService-pid
 case $1 in
     start)
@@ -39,4 +39,4 @@ case $1 in
             echo "$SERVICE_NAME is not running ..."
         fi
     ;;
-esac 
+esac
