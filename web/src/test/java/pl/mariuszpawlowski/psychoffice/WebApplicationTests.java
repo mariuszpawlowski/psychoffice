@@ -1,4 +1,4 @@
-package pl.psychoffice;
+package pl.mariuszpawlowski.psychoffice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

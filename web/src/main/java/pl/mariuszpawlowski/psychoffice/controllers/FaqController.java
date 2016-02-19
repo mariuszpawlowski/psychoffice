@@ -1,4 +1,4 @@
-package pl.psychoffice.controllers;
+package pl.mariuszpawlowski.psychoffice.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by mario on 16/08/15.
  */
 @Controller
-public class ContactController {
+public class FaqController {
 
-    @RequestMapping("/contact")
-    String contact(){
-        return "contact";
+    @RequestMapping("/faq")
+    String blog(){
+        return "faq";
     }
 }
