@@ -48,29 +48,13 @@
 
         <div class="container">
             <div class="row">
-               <!-- <div class="col-md-12">
-                    <h2 class="section-title no-margin-top">Wyślij wiadomość</h2>
-                </div> -->
+                <!-- <div class="col-md-12">
+                     <h2 class="section-title no-margin-top">Wyślij wiadomość</h2>
+                 </div> -->
                 <div class="col-md-8">
                     <section>
-                        <p>Wpisz wiadomość w poniższy formularz, odpowiemy tak szybko jak tylko to możliwe.</p>
+                        <p>Dziękujemy za przesłanie wiadomości. Odpowiemy tak szybko jak tylko to możliwe.</p>
 
-                        <form role="form" action="#" th:action="@{/contact}" th:object="${contactForm}" method="post">
-                            <div class="form-group">
-                                <label for="InputName">Imię i nazwisko</label>
-                                <input type="text" class="form-control" id="InputName" th:field="*{name}"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="InputEmail1">Adres e-mail</label>
-                                <input type="email" class="form-control" id="InputEmail1" th:field="*{email}"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="InputMessage">Wiadomość</label>
-                                <textarea class="form-control" id="InputMessage" rows="8" th:field="*{message}"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-ar btn-primary">Wyślij</button>
-                            <div class="clearfix"></div>
-                        </form>
                     </section>
                 </div>
                 <div class="col-md-4">

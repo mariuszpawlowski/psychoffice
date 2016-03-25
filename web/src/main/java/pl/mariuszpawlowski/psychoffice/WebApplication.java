@@ -1,5 +1,6 @@
-package pl.psychoffice;
+package pl.mariuszpawlowski.psychoffice;
 
+import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
@@ -7,13 +8,15 @@ import org.springframework.boot.context.embedded.ErrorPage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
 
 
 @EnableAutoConfiguration
 @Configuration
 @ComponentScan
+@EnableEncryptableProperties
+@PropertySource(name="EncryptedProperties", value = "classpath:encrypted.properties")
 public class WebApplication {
 
     public static void main(String[] args) throws Exception {
