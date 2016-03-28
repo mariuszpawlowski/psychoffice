@@ -28,7 +28,7 @@ public class ContactController {
     }
 
     @RequestMapping(value="/contact", method= RequestMethod.POST)
-    public String greetingSubmit(@ModelAttribute ContactForm contactForm) {
+    public String contactSubmit(@ModelAttribute ContactForm contactForm) {
         String resultTemplate;
         EmailStatus status = null;
 
