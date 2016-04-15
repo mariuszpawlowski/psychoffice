@@ -1,6 +1,4 @@
-package pl.psychoffice.service.user;
-
-import org.springframework.stereotype.Service;
+package pl.mariuszpawlowski.psychoffice.service.user;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import pl.psychoffice.domain.User;
-import pl.psychoffice.domain.UserCreateForm;
-import pl.psychoffice.repository.UserRepository;
+import pl.mariuszpawlowski.psychoffice.domain.User;
+import pl.mariuszpawlowski.psychoffice.domain.UserCreateForm;
+import pl.mariuszpawlowski.psychoffice.repository.UserRepository;
 
 import java.util.Collection;
 import java.util.Optional;

@@ -1,6 +1,7 @@
-package pl.psychoffice.service.user.currentuser;
+package pl.mariuszpawlowski.psychoffice.service.user.currentuser;
 
-import pl.psychoffice.domain.CurrentUser;
+
+import pl.mariuszpawlowski.psychoffice.domain.CurrentUser;
 
 /**
  * Created by mario on 01/09/15.

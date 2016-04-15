@@ -1,4 +1,4 @@
-package pl.psychoffice.security;
+package pl.mariuszpawlowski.psychoffice.security;
 
 /**
  * Created by mario on 21/08/15.

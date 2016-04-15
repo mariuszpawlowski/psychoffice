@@ -1,10 +1,10 @@
-package pl.psychoffice.controllers;
+package pl.mariuszpawlowski.psychoffice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import pl.psychoffice.service.user.UserService;
+import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 
 /**
  * Created by mario on 23/08/15.

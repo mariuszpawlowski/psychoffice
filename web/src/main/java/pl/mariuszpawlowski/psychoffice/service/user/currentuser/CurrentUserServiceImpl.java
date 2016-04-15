@@ -1,10 +1,10 @@
-package pl.psychoffice.service.user.currentuser;
+package pl.mariuszpawlowski.psychoffice.service.user.currentuser;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import pl.psychoffice.domain.CurrentUser;
-import pl.psychoffice.domain.Role;
+import pl.mariuszpawlowski.psychoffice.domain.CurrentUser;
+import pl.mariuszpawlowski.psychoffice.domain.Role;
 
 /**
  * Created by mario on 01/09/15.

@@ -1,7 +1,7 @@
-package pl.psychoffice.repository;
+package pl.mariuszpawlowski.psychoffice.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.psychoffice.domain.User;
+import pl.mariuszpawlowski.psychoffice.domain.User;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package pl.psychoffice.domain;
+package pl.mariuszpawlowski.psychoffice.domain;
 
 import org.springframework.security.core.authority.AuthorityUtils;
 

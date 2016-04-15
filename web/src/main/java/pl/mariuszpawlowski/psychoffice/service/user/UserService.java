@@ -1,7 +1,8 @@
-package pl.psychoffice.service.user;
+package pl.mariuszpawlowski.psychoffice.service.user;
 
-import pl.psychoffice.domain.User;
-import pl.psychoffice.domain.UserCreateForm;
+
+import pl.mariuszpawlowski.psychoffice.domain.User;
+import pl.mariuszpawlowski.psychoffice.domain.UserCreateForm;
 
 import java.util.Collection;
 import java.util.Optional;

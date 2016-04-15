@@ -1,14 +1,13 @@
-package pl.psychoffice.service.user.currentuser;
+package pl.mariuszpawlowski.psychoffice.service.user.currentuser;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
-import pl.psychoffice.domain.CurrentUser;
-import pl.psychoffice.domain.User;
-import pl.psychoffice.service.user.UserService;
+import pl.mariuszpawlowski.psychoffice.domain.CurrentUser;
+import pl.mariuszpawlowski.psychoffice.domain.User;
+import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 
 /**
  * Created by mario on 01/09/15.

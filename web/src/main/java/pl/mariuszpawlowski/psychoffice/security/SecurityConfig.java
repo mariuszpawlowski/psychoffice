@@ -11,18 +11,17 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
 
 /**
  * Created by Mariusz.Pawlowski on 2015-08-11.
  */
 @Configuration
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
-/* @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true) */
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] STATIC_PAGES = new String[]{"/", "/clientHome", "/onlineConsultation", "/onlineTherapy", "/onlineTests",
@@ -32,6 +31,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] STATIC_RESOURCES = new String[]{"/css/**", "/img/**", "/img/demo/**", "/js/**", "/fonts/**"};
     private static final String[] ADMIN_PAGES = new String[]{"/admin", "admin/a"};
     private static final String[] CLIENT_PAGES = new String[]{"/clientHome", "clientHome/a"};
+
+//    @Autowired
+//    private UserDetailsService userDetailsService;
+
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -88,14 +91,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         security.ignoring().antMatchers("/img/**", "/css/**", "/fonts/**", "/js/**");
     }
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+
     
 
-    @Override
+/*    @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(new BCryptPasswordEncoder());
-    }
+    }*/
 }

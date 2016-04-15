@@ -1,4 +1,4 @@
-package pl.psychoffice.controllers;
+package pl.mariuszpawlowski.psychoffice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -7,9 +7,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import pl.psychoffice.domain.UserCreateForm;
-import pl.psychoffice.domain.validator.UserCreateFormValidator;
-import pl.psychoffice.service.user.UserService;
+import pl.mariuszpawlowski.psychoffice.domain.UserCreateForm;
+import pl.mariuszpawlowski.psychoffice.domain.validator.UserCreateFormValidator;
+import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 
 import javax.validation.Valid;
 import java.util.NoSuchElementException;
@@ -33,12 +33,12 @@ public class UserController {
     public void initBinder(WebDataBinder binder) {
         binder.addValidators(userCreateFormValidator);
     }
-
+/*
     @RequestMapping("/user/{id}")
     public ModelAndView getUserPage(@PathVariable Long id) {
         return new ModelAndView("user", "user", userService.getUserById(id)
                 .orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", id))));
-    }
+    }*/
 
     @RequestMapping(value = "/user/create", method = RequestMethod.GET)
     public ModelAndView getUserCreatePage() {

@@ -12,7 +12,7 @@ public class HomeController {
 
     @RequestMapping("/")
     String index() {
-        //return "index";
-        return "home";
+        return "index";
+        //return "home";
     }
 }

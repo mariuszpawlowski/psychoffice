@@ -1,4 +1,4 @@
-package pl.psychoffice.security;
+package pl.mariuszpawlowski.psychoffice.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -46,7 +46,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
         String targetUrl = determineTargetUrl(authentication);
 
         if (httpServletResponse.isCommitted()) {
-           // logger.debug("Response has already been committed. Unable to redirect to " + targetUrl);
+            // logger.debug("Response has already been committed. Unable to redirect to " + targetUrl);
             return;
         }
 
