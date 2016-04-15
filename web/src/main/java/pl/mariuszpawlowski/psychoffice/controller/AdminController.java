@@ -1,5 +1,6 @@
 package pl.mariuszpawlowski.psychoffice.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AdminController {
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping("/admin")
     String admin() {
         return "admin";

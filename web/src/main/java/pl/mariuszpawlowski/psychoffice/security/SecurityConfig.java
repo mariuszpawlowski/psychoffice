@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -32,17 +34,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] ADMIN_PAGES = new String[]{"/admin", "admin/a"};
     private static final String[] CLIENT_PAGES = new String[]{"/clientHome", "clientHome/a"};
 
-//    @Autowired
-//    private UserDetailsService userDetailsService;
-
-
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    private UserDetailsService userDetailsService;
+
+
+    @Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-                .inMemoryAuthentication()
-                .withUser("u").password("u").roles(Roles.USER).and()
-                .withUser("a").password("a").roles(Roles.ADMIN).and();
+                .userDetailsService(userDetailsService)
+                .passwordEncoder(new BCryptPasswordEncoder());
     }
+
 
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -74,6 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .logoutSuccessUrl("/")
                     .invalidateHttpSession(true)
                     .deleteCookies("JSESSIONID")
+                    .deleteCookies("remember-me")
                     .permitAll()
                     .and();
 
@@ -91,13 +94,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         security.ignoring().antMatchers("/img/**", "/css/**", "/fonts/**", "/js/**");
     }
 
-
-    
-
-/*    @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(new BCryptPasswordEncoder());
-    }*/
 }

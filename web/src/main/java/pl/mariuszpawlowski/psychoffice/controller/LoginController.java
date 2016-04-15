@@ -1,4 +1,4 @@
-package pl.psychoffice.controllers;
+package pl.mariuszpawlowski.psychoffice.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,14 +14,10 @@ import java.util.Optional;
 @Controller
 public class LoginController {
 
-    @RequestMapping("/login")
-    String admin() {
-        return "login";
-    }
-
-    @RequestMapping(value = "/login2", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView getLoginPage(@RequestParam Optional<String> error) {
-        return new ModelAndView("login2", "error", error);
+
+        return new ModelAndView("login", "error", error);
     }
 
 

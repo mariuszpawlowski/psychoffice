@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 import pl.mariuszpawlowski.psychoffice.domain.CurrentUser;
 import pl.mariuszpawlowski.psychoffice.domain.User;
 import pl.mariuszpawlowski.psychoffice.service.user.UserService;
@@ -12,6 +13,7 @@ import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 /**
  * Created by mario on 01/09/15.
  */
+@Service
 public class CurrentUserDetailsService implements UserDetailsService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CurrentUserDetailsService.class);
