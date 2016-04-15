@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public Optional<User> getUserByEmail(String email) {
         LOGGER.debug("Getting user by email={}", email.replaceFirst("@.*", "@***"));
-        return userRepository.findOneByEmail(email); userRepository.findAll()
+        return userRepository.findOneByEmail(email);
     }
 
     @Override

@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,9 +20,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  * Created by Mariusz.Pawlowski on 2015-08-11.
  */
 @Configuration
-@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
-@EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] STATIC_PAGES = new String[]{"/", "/clientHome", "/onlineConsultation", "/onlineTherapy", "/onlineTests",
@@ -49,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/clientHome", "/onlineConsultation", "/onlineTherapy",
+                .antMatchers("/", "/onlineConsultation", "/onlineTherapy",
                         "/directConsultation", "/directDiagnosis", "/directIndividual", "/directPair", "/directGroup",
                         "/companiesDiagnosis", "/companiesTraining", "/companiesNegotiations",
                         "/prices",
@@ -62,12 +60,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/js/**").permitAll()
                 .antMatchers("/fonts/**").permitAll()
                 .antMatchers("/admin").hasRole("ADMIN")
-                .antMatchers("/manage/**").hasRole("MANAGER")
+                .antMatchers("/manage/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                     .failureUrl("/login?error")
-                    .successHandler(authenticationSuccessHandler())
+                  //  .successHandler(authenticationSuccessHandler())
                     .loginPage("/login")
                     .permitAll()
                     .and()

@@ -1,18 +1,19 @@
 package pl.mariuszpawlowski.psychoffice;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = WebApplication.class)
-@WebAppConfiguration
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringApplicationConfiguration(classes = WebApplication.class)
+//@WebAppConfiguration
 public class WebApplicationTests {
 
 	@Test
-	public void contextLoads() {
+	public void sample() {
+		String admin = new BCryptPasswordEncoder().encode("pass");
+		System.out.println(admin);
+
+
 	}
 
 }
