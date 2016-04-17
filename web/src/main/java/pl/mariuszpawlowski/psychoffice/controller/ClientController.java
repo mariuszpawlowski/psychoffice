@@ -1,6 +1,7 @@
 package pl.mariuszpawlowski.psychoffice.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,13 +13,14 @@ public class ClientController {
 
     @PreAuthorize("hasAuthority('USER')")
     @RequestMapping("/clientHome")
-    String clientHome(){
+    public String clientHome(){
         return "client/clientHome";
     }
 
+
     @PreAuthorize("hasAuthority('USER')")
     @RequestMapping("/clientSessions")
-    String clientSesions(){
+    public String clientSesions(Authentication authentication){
         return "client/clientSessions";
     }
 

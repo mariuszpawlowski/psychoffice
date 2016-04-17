@@ -2,7 +2,6 @@ package pl.mariuszpawlowski.psychoffice.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,13 +11,13 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 /**
  * Created by Mariusz.Pawlowski on 2015-08-11.
  */
+
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
@@ -59,9 +58,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/img/demo/**").permitAll()
                 .antMatchers("/js/**").permitAll()
                 .antMatchers("/fonts/**").permitAll()
-                .antMatchers("/admin").hasRole("ADMIN")
-                .antMatchers("/manage/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
+               // .antMatchers("/clientHome/**").hasRole("USER")
+                .anyRequest().fullyAuthenticated()
                 .and()
                 .formLogin()
                     .failureUrl("/login?error")
@@ -76,16 +74,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .deleteCookies("JSESSIONID")
                     .deleteCookies("remember-me")
                     .permitAll()
-                    .and();
+                    .and()
+                    .rememberMe();
 
         http.csrf().disable();
 
     }
 
-    @Bean
-    public AuthenticationSuccessHandler authenticationSuccessHandler() {
-        return new MyAuthenticationSuccessHandler();
-    }
 
     @Override
     public void configure(WebSecurity security) throws Exception {

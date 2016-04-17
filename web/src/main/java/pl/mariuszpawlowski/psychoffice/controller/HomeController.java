@@ -1,5 +1,6 @@
 package pl.mariuszpawlowski.psychoffice.controller;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,7 +13,9 @@ public class HomeController {
 
 
     @RequestMapping("/")
-    String index() {
+    String index(Authentication authentication) {
+
+
 
         return "index";
         //return "home";

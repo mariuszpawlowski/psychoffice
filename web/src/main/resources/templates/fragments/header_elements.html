@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 
 </head>
@@ -23,6 +23,7 @@
 
 <div class="dropdown animated fadeInDown animation-delay-11" th:fragment="login_form">
     <a href="/login" sec:authorize="!isAuthenticated()"><i class="fa fa-user"></i> Zaloguj się</a>
+    <span sec:authorize="isAuthenticated()">Witaj </span>
     <a href="/logout" sec:authorize="isAuthenticated()"><i class="fa fa-user"></i> Wyloguj się</a>
 
 </div> <!-- dropdown -->
@@ -113,7 +114,7 @@
                 <li >
                     <a href="/contact">Kontakt</a>
                 </li>
-                <li class="dropdown" sec:authorize="hasRole('ROLE_user')">
+                <li class="dropdown" sec:authorize="hasRole('USER')">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Konto klienta</a>
                     <ul class="dropdown-menu dropdown-menu-left">
                         <li><a href="/clientHome">Start</a></li>
