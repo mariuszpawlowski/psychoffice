@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import pl.mariuszpawlowski.psychoffice.domain.CurrentUser;
 
-@ControllerAdvice
+//@ControllerAdvice
 public class CurrentUserControllerAdvice {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CurrentUserControllerAdvice.class);
