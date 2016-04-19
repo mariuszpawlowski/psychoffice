@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import pl.mariuszpawlowski.psychoffice.domain.User;
-import pl.mariuszpawlowski.psychoffice.domain.UserCreateForm;
+import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
+import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
 import pl.mariuszpawlowski.psychoffice.repository.UserRepository;
 
 import java.util.Collection;

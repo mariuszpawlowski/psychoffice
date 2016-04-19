@@ -1,4 +1,4 @@
-package pl.mariuszpawlowski.psychoffice.model;
+package pl.mariuszpawlowski.psychoffice.domain.form;
 
 /**
  * Created by mariusz.pawlowski on 2016-03-24.

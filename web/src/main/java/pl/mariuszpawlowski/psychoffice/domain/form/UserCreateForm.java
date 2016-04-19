@@ -1,6 +1,7 @@
-package pl.mariuszpawlowski.psychoffice.domain;
+package pl.mariuszpawlowski.psychoffice.domain.form;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import pl.mariuszpawlowski.psychoffice.domain.Role;
 
 import javax.validation.constraints.NotNull;
 

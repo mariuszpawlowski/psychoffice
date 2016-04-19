@@ -1,4 +1,6 @@
-package pl.mariuszpawlowski.psychoffice.domain;
+package pl.mariuszpawlowski.psychoffice.domain.jpa;
+
+import pl.mariuszpawlowski.psychoffice.domain.Role;
 
 import javax.persistence.*;
 

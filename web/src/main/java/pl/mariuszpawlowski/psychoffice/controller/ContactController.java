@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.mariuszpawlowski.psychoffice.component.mail.EmailStatus;
-import pl.mariuszpawlowski.psychoffice.model.ContactForm;
+import pl.mariuszpawlowski.psychoffice.domain.form.ContactForm;
 import pl.mariuszpawlowski.psychoffice.service.MailSendService;
 
 import java.io.UnsupportedEncodingException;

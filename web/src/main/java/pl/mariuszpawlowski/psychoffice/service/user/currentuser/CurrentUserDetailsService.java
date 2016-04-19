@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import pl.mariuszpawlowski.psychoffice.domain.CurrentUser;
-import pl.mariuszpawlowski.psychoffice.domain.User;
+import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
 import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 
 /**

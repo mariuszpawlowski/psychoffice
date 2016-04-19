@@ -1,6 +1,7 @@
 package pl.mariuszpawlowski.psychoffice.domain;
 
 import org.springframework.security.core.authority.AuthorityUtils;
+import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
 
 /**
  * Created by mario on 01/09/15.
