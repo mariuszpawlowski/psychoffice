@@ -23,6 +23,9 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private UserDetails userDetails;
+
     public Long getId() {
         return id;
     }
@@ -49,6 +52,14 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public UserDetails getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetails userDetails) {
+        this.userDetails = userDetails;
     }
 
     @Override
