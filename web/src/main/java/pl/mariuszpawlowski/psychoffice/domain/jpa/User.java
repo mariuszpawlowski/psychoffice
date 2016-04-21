@@ -5,7 +5,7 @@ import pl.mariuszpawlowski.psychoffice.domain.Role;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user_info")
 public class User {
 
     @Id
@@ -23,7 +23,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private UserDetails userDetails;
 
     public Long getId() {

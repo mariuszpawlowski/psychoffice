@@ -27,10 +27,6 @@ public class UserDetails {
     @Column(name = "city")
     private String city;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @PrimaryKeyJoinColumn
-    private User user;
-
     public Long getId() {
         return id;
     }
@@ -67,11 +63,4 @@ public class UserDetails {
         this.city = city;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
