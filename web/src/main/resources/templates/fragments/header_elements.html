@@ -23,7 +23,8 @@
 
 <div class="dropdown animated fadeInDown animation-delay-11" th:fragment="login_form">
     <a href="/login" sec:authorize="!isAuthenticated()"><i class="fa fa-user"></i> Zaloguj się</a>
-    <span sec:authorize="isAuthenticated()">Witaj </span>
+    <span sec:authorize="isAuthenticated()">Witaj <span th:text="${#authentication.principal.user.userDetails.name}"></span> <span th:text="${#authentication.principal.user.userDetails.surname}"></span> </span>
+
     <a href="/logout" sec:authorize="isAuthenticated()"><i class="fa fa-user"></i> Wyloguj się</a>
 
 </div> <!-- dropdown -->
