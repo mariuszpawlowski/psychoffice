@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 
 </head>
@@ -32,8 +32,10 @@
             <li><a href="/prices">Cennik</a></li>
             <li><a href="/faq">FAQ</a></li>
             <li><a href="/contact">Kontakt</a></li>
+            <li sec:authorize="hasAuthority('USER')"><a href="/clientHome">Konto klienta</a></li>
         </ul>
 
+        <h3></h3>
         <div class="slidebar-social-icons">
             <a href="#" class="social-icon-ar facebook"><i class="fa fa-facebook"></i></a>
             <a href="#" class="social-icon-ar instagram"><i class="fa fa-instagram"></i></a>
