@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 
 </head>
@@ -28,6 +28,7 @@
                     <li><a href="/prices">Cennik</a></li>
                     <li><a href="/faq">FAQ</a></li>
                     <li><a href="/contact">Kontakt</a></li>
+                    <li sec:authorize="hasAuthority('USER')"><a href="/clientHome">Konto klienta</a></li>
                 </ul>
             </div>
         </div>
