@@ -3603,6 +3603,15 @@ a.thumbnail.active {
   padding-bottom: 2px;
   padding-top: 1px;
 }
+.five_cols {
+  overflow: hidden;
+}
+.five_cols > li {
+  float: left;
+  width: 20%;
+  padding-bottom: 2px;
+  padding-top: 1px;
+}
 .input-group > input[type="text"] {
   height: 34px;
   position: relative;
