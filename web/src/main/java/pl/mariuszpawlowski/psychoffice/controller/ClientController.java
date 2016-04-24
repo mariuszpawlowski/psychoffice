@@ -17,7 +17,6 @@ public class ClientController {
         return "client/clientHome";
     }
 
-
     @PreAuthorize("hasAuthority('USER')")
     @RequestMapping("/clientSessions")
     public String clientSesions(Authentication authentication){
