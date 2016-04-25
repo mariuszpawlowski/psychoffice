@@ -34,6 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private MyAuthenticationSuccessHandler authenticationSuccessHandler;
+
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -63,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                     .failureUrl("/login?error")
-                  //  .successHandler(authenticationSuccessHandler())
+                    .successHandler(authenticationSuccessHandler)
                     .loginPage("/login")
                     .permitAll()
                     .and()
