@@ -1,4 +1,4 @@
-package pl.mariuszpawlowski.psychoffice.controller;
+package pl.mariuszpawlowski.psychoffice.controller.admin;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -13,6 +13,6 @@ public class AdminController {
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping("/admin")
     String admin() {
-        return "admin";
+        return "admin/admin";
     }
 }
