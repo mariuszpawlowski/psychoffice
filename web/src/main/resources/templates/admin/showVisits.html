@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <head>
     <meta charset="utf-8"/>
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
     <!-- Basic Styles -->
-    <link rel="stylesheet" type="text/css" media="screen" href="admin/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/admin/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/admin/css/font-awesome.min.css"/>
 
     <!-- SmartAdmin Styles : Caution! DO NOT change the order -->
@@ -105,7 +105,7 @@ Use search to find needed section.
     <div id="logo-group">
 
         <!-- PLACE YOUR LOGO HERE -->
-        <span id="logo"> <img src="admin/img/logo.png" alt="Psychoffice"/> </span>
+        <span id="logo"> <img src="/admin/img/logo.png" alt="Psychoffice"/> </span>
         <!-- END LOGO PLACEHOLDER -->
 
     </div>
@@ -124,7 +124,7 @@ Use search to find needed section.
         <ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
             <li class="">
                 <a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
-                    <img src="admin/img/avatars/sunny.png" alt="John Doe" class="online" />
+                    <img src="/admin/img/avatars/sunny.png" alt="John Doe" class="online" />
                 </a>
                 <ul class="dropdown-menu pull-right">
                     <li>
@@ -189,10 +189,10 @@ Use search to find needed section.
             <li class="active">
                 <a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Przeglądanie danych</span></a>
                 <ul>
-                    <li class="active">
+                    <li th:class="${menuStyles.showClients} ? 'active' : ''">
                         <a href="/admin/showClients"><i class="fa fa-table"></i> Lista klientów</a>
                     </li>
-                    <li>
+                    <li th:class="${menuStyles.showVisits} ? 'active' : ''">
                         <a href="/admin/showVisits"><i class="fa fa-table"></i> Lista wizyt </a>
                     </li>
                 </ul>
@@ -325,43 +325,43 @@ you can add as many as you like
 
 
 <!-- IMPORTANT: APP CONFIG -->
-<script src="admin/js/app.config.js"></script>
+<script src="/admin/js/app.config.js"></script>
 
 <!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-<script src="admin/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
+<script src="/admin/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
 
 <!-- BOOTSTRAP JS -->
-<script src="admin/js/bootstrap/bootstrap.min.js"></script>
+<script src="/admin/js/bootstrap/bootstrap.min.js"></script>
 
 <!-- CUSTOM NOTIFICATION -->
-<script src="admin/js/notification/SmartNotification.min.js"></script>
+<script src="/admin/js/notification/SmartNotification.min.js"></script>
 
 <!-- JARVIS WIDGETS -->
-<script src="admin/js/smartwidgets/jarvis.widget.min.js"></script>
+<script src="/admin/js/smartwidgets/jarvis.widget.min.js"></script>
 
 <!-- EASY PIE CHARTS -->
-<script src="admin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+<script src="/admin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
 
 <!-- SPARKLINES -->
-<script src="admin/js/plugin/sparkline/jquery.sparkline.min.js"></script>
+<script src="/admin/js/plugin/sparkline/jquery.sparkline.min.js"></script>
 
 <!-- JQUERY VALIDATE -->
-<script src="admin/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+<script src="/admin/js/plugin/jquery-validate/jquery.validate.min.js"></script>
 
 <!-- JQUERY MASKED INPUT -->
-<script src="admin/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+<script src="/admin/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
 
 <!-- JQUERY SELECT2 INPUT -->
-<script src="admin/js/plugin/select2/select2.min.js"></script>
+<script src="/admin/js/plugin/select2/select2.min.js"></script>
 
 <!-- JQUERY UI + Bootstrap Slider -->
-<script src="admin/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+<script src="/admin/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
 
 <!-- browser msie issue fix -->
-<script src="admin/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+<script src="/admin/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
 
 <!-- FastClick: For mobile devices -->
-<script src="admin/js/plugin/fastclick/fastclick.min.js"></script>
+<script src="/admin/js/plugin/fastclick/fastclick.min.js"></script>
 
 <!--[if IE 8]>
 
@@ -370,21 +370,21 @@ you can add as many as you like
 <![endif]-->
 
 <!-- Demo purpose only -->
-<script src="admin/js/demo.min.js"></script>
+<script src="/admin/js/demo.min.js"></script>
 
 <!-- MAIN APP JS FILE -->
-<script src="admin/js/app.min.js"></script>
+<script src="/admin/js/app.min.js"></script>
 
 <!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
 <!-- Voice command : plugin -->
-<script src="admin/js/speech/voicecommand.min.js"></script>
+<script src="/admin/js/speech/voicecommand.min.js"></script>
 
 <!-- SmartChat UI : plugin -->
-<script src="admin/js/smart-chat-ui/smart.chat.ui.min.js"></script>
-<script src="admin/js/smart-chat-ui/smart.chat.manager.min.js"></script>
+<script src="/admin/js/smart-chat-ui/smart.chat.ui.min.js"></script>
+<script src="/admin/js/smart-chat-ui/smart.chat.manager.min.js"></script>
 
 <!-- PAGE RELATED PLUGIN(S) -->
-<script src="admin/js/plugin/superbox/superbox.min.js"></script>
+<script src="/admin/js/plugin/superbox/superbox.min.js"></script>
 
 
 <script type="text/javascript">

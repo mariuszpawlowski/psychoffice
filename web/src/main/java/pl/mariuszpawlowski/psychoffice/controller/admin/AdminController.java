@@ -20,14 +20,21 @@ public class AdminController {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping("/admin/showClients")
-    public String showClients(Model model) {
-        return "admin/showClients";
+    public ModelAndView showClients(Model model) {
+        MenuStyles menuStyles = new MenuStyles();
+        menuStyles.setShowClients(true);
+        model.addAttribute(menuStyles);
+
+//        return "admin/showClients";
+        return new ModelAndView("admin/showClients", "menuStyles", menuStyles);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping("/admin/showVisits")
     public ModelAndView showVisits() {
-        return new ModelAndView("admin/showVisits");
+        MenuStyles menuStyles = new MenuStyles();
+        menuStyles.setShowVisits(true);
+        return new ModelAndView("admin/showVisits", "menuStyles", menuStyles);
     }
 
 
