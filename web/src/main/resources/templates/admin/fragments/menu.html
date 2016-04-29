@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-
-</head>
-<body>
-
 <aside id="left-panel" th:fragment="admin_menu">
     <nav>
         <ul>
             <li th:class="${menuStyles.showClients or menuStyles.showVisits} ? 'active' : ''">
                 <a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span
-                        class="menu-item-parent">Przeglądanie danych</span></a>
+                        class="menu-item-parent" th:text="#{admin.show.data.title}"/></a>
                 <ul>
                     <li th:class="${menuStyles.showClients} ? 'active' : ''">
-                        <a href="/admin/showClients"><i class="fa fa-table"></i> Lista klientów</a>
+                        <a href="/admin/showClients"><i class="fa fa-table"></i> <span th:text="#{admin.show.data.clients.title}"/></a>
                     </li>
                     <li th:class="${menuStyles.showVisits} ? 'active' : ''">
-                        <a href="/admin/showVisits"><i class="fa fa-table"></i> Lista wizyt </a>
+                        <a href="/admin/showVisits"><i class="fa fa-table"></i> <span th:text="#{admin.show.data.visits.title}"/> </a>
                     </li>
                 </ul>
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Edycja danych</span></a>
+                <a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent" th:text="#{admin.add.data.title}"/></a>
                 <ul>
                     <li>
-                        <a href="form-elements.html"><i class="fa fa-file-text-o"></i> Dodanie klienta</a>
+                        <a href="form-elements.html"><i class="fa fa-file-text-o"></i> <span th:text="#{admin.add.data.client.title}"/></a>
                     </li>
                     <li>
-                        <a href="form-templates.html"><i class="fa fa-file-text-o"></i> Dodanie wizyty</a>
+                        <a href="form-templates.html"><i class="fa fa-file-text-o"></i> <span th:text="#{admin.add.data.visit.title}"/></a>
                     </li>
                 </ul>
             </li>
         </ul>
     </nav>
 </aside>
-</body>
 </html>

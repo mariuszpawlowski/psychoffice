@@ -1,5 +1,6 @@
 package pl.mariuszpawlowski.psychoffice.controller.admin;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,8 +25,6 @@ public class AdminController {
         MenuStyles menuStyles = new MenuStyles();
         menuStyles.setShowClients(true);
         model.addAttribute(menuStyles);
-
-//        return "admin/showClients";
         return new ModelAndView("admin/showClients", "menuStyles", menuStyles);
     }
 
