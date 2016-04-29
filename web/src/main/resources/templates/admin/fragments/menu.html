@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+
+<aside id="left-panel" th:fragment="admin_menu">
+    <nav>
+        <ul>
+            <li th:class="${menuStyles.showClients or menuStyles.showVisits} ? 'active' : ''">
+                <a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span
+                        class="menu-item-parent">Przeglądanie danych</span></a>
+                <ul>
+                    <li th:class="${menuStyles.showClients} ? 'active' : ''">
+                        <a href="/admin/showClients"><i class="fa fa-table"></i> Lista klientów</a>
+                    </li>
+                    <li th:class="${menuStyles.showVisits} ? 'active' : ''">
+                        <a href="/admin/showVisits"><i class="fa fa-table"></i> Lista wizyt </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Edycja danych</span></a>
+                <ul>
+                    <li>
+                        <a href="form-elements.html"><i class="fa fa-file-text-o"></i> Dodanie klienta</a>
+                    </li>
+                    <li>
+                        <a href="form-templates.html"><i class="fa fa-file-text-o"></i> Dodanie wizyty</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</aside>
+</body>
+</html>

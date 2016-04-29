@@ -174,50 +174,7 @@ Use search to find needed section.
 </header>
 <!-- END HEADER -->
 
-<!-- Left panel : Navigation area -->
-<!-- Note: This width of the aside area can be adjusted through LESS variables -->
-<aside id="left-panel">
-
-    <nav>
-        <!--
-        NOTE: Notice the gaps after each icon usage <i></i>..
-        Please note that these links work a bit different than
-        traditional href="" links. See documentation for details.
-        -->
-
-        <ul>
-            <li class="active">
-                <a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Przeglądanie danych</span></a>
-                <ul>
-                    <li th:class="${menuStyles.showClients} ? 'active' : ''">
-                        <a href="/admin/showClients"><i class="fa fa-table"></i> Lista klientów</a>
-                    </li>
-                    <li th:class="${menuStyles.showVisits} ? 'active' : ''">
-                        <a href="/admin/showVisits"><i class="fa fa-table"></i> Lista wizyt </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Edycja danych</span></a>
-                <ul>
-                    <li>
-                        <a href="form-elements.html"><i class="fa fa-file-text-o"></i> Dodanie klienta</a>
-                    </li>
-                    <li>
-                        <a href="form-templates.html"><i class="fa fa-file-text-o"></i> Dodanie wizyty</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-
-			<span class="minifyme" data-action="minifyMenu">
-				<i class="fa fa-arrow-circle-left hit"></i>
-			</span>
-
-</aside>
+<aside th:replace="admin/fragments/menu :: admin_menu "></aside>
 <!-- END NAVIGATION -->
 
 <!-- MAIN PANEL -->
