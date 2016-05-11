@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head th:replace="admin/fragments/head :: head"></head>
+
+<body class="">
+
+<header th:replace="admin/fragments/header :: header"></header>
+<aside th:replace="admin/fragments/menu :: admin_menu "></aside>
+
+<div id="main" role="main">
+
+    <div id="ribbon">
+        <span th:replace="admin/fragments/ribbon :: ribbon_button"></span>
+        <!-- breadcrumb -->
+        <ol class="breadcrumb">
+            <li>Home</li>
+            <li th:text="#{admin.add.data.title}"></li>
+            <li th:text="#{admin.add.data.client.title}"></li>
+        </ol>
+    </div>
+
+    <div id="content">
+        <!-- row -->
+        <div class="row">
+
+            <div class="superbox col-sm-12">
+
+                <span>add client</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div th:replace="admin/fragments/footer :: footer"></div>
+<div th:replace="admin/fragments/scripts :: scripts"></div>
+
+</body>
+</html>

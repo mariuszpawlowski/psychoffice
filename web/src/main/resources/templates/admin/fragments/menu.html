@@ -16,14 +16,14 @@
                 </ul>
             </li>
 
-            <li>
+            <li th:class="${menuStyles.showAddClient or menuStyles.showAddVisit} ? 'active' : ''">
                 <a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent" th:text="#{admin.add.data.title}"/></a>
                 <ul>
-                    <li>
-                        <a href="form-elements.html"><i class="fa fa-file-text-o"></i> <span th:text="#{admin.add.data.client.title}"/></a>
+                    <li th:class="${menuStyles.showAddClient} ? 'active' : ''">
+                        <a href="/admin/addClient"><i class="fa fa-file-text-o"></i> <span th:text="#{admin.add.data.client.title}"/></a>
                     </li>
-                    <li>
-                        <a href="form-templates.html"><i class="fa fa-file-text-o"></i> <span th:text="#{admin.add.data.visit.title}"/></a>
+                    <li th:class="${menuStyles.showAddVisit} ? 'active' : ''">
+                        <a href="/admin/addVisit"><i class="fa fa-file-text-o"></i> <span th:text="#{admin.add.data.visit.title}"/></a>
                     </li>
                 </ul>
             </li>

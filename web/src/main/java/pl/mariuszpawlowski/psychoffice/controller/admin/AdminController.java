@@ -36,5 +36,21 @@ public class AdminController {
         return new ModelAndView("admin/showVisits", "menuStyles", menuStyles);
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping("/admin/addClient")
+    public ModelAndView addClient() {
+        MenuStyles menuStyles = new MenuStyles();
+        menuStyles.setShowAddClient(true);
+        return new ModelAndView("admin/addClient", "menuStyles", menuStyles);
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping("/admin/addVisit")
+    public ModelAndView addVisit() {
+        MenuStyles menuStyles = new MenuStyles();
+        menuStyles.setShowAddVisit(true);
+        return new ModelAndView("admin/addVisit", "menuStyles", menuStyles);
+
+    }
 
 }
