@@ -23,14 +23,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String[] STATIC_PAGES = new String[]{"/", "/clientHome", "/onlineConsultation", "/onlineTherapy", "/onlineTests",
-            "/directConsultation", "/directPsychotherapy", "/directPsychotherapy", "/companiesDiagnosis", "/companiesTraining", "/companiesNegotiations",
-            "/prices", "/aboutBiography", "/aboutQualifications", "/aboutHow", "/aboutPublications", "/blog", "/faq", "/contact"};
-
-    private static final String[] STATIC_RESOURCES = new String[]{"/css/**", "/img/**", "/img/demo/**", "/js/**", "/fonts/**"};
-    private static final String[] ADMIN_PAGES = new String[]{"/admin", "admin/a"};
-    private static final String[] CLIENT_PAGES = new String[]{"/clientHome", "clientHome/a"};
-
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -61,7 +53,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/img/demo/**").permitAll()
                 .antMatchers("/js/**").permitAll()
                 .antMatchers("/fonts/**").permitAll()
-               // .antMatchers("/clientHome/**").hasRole("USER")
                 .anyRequest().fullyAuthenticated()
                 .and()
                 .formLogin()
@@ -79,15 +70,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
                     .and()
                     .rememberMe();
-
         http.csrf().disable();
-
     }
-
 
     @Override
     public void configure(WebSecurity security) throws Exception {
         security.ignoring().antMatchers("/img/**", "/css/**", "/fonts/**", "/js/**");
     }
-
 }
