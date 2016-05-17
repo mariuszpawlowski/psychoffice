@@ -3,14 +3,12 @@ package pl.mariuszpawlowski.psychoffice.service.user;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
 import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
 import pl.mariuszpawlowski.psychoffice.repository.UserRepository;
 
-import java.util.Collection;
 import java.util.Optional;
 
 /**
@@ -40,9 +38,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Collection<User> getAllUsers() {
+    public Iterable<User> getAllUsers() {
         LOGGER.debug("Getting all users");
-        return userRepository.findAll(new Sort("email"));
+        return userRepository.findAll();
     }
 
     @Override
