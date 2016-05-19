@@ -3,6 +3,7 @@ package pl.mariuszpawlowski.psychoffice.domain.jpa;
 import pl.mariuszpawlowski.psychoffice.domain.Role;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "user_info")
@@ -25,6 +26,9 @@ public class User {
 
     @OneToOne(cascade = CascadeType.ALL)
     private UserDetails userDetails;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<Visit> visits;
 
     public Long getId() {
         return id;
@@ -60,6 +64,14 @@ public class User {
 
     public void setUserDetails(UserDetails userDetails) {
         this.userDetails = userDetails;
+    }
+
+    public Set<Visit> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(Set<Visit> visits) {
+        this.visits = visits;
     }
 
     @Override
