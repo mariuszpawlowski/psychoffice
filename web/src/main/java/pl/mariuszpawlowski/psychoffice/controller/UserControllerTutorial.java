@@ -18,14 +18,14 @@ import java.util.NoSuchElementException;
 /**
  * Created by mario on 23/08/15.
  */
-
+/*
 @Controller
-public class UserController {
+public class UserControllerTutorial {
     private final UserService userService;
     private final UserCreateFormValidator userCreateFormValidator;
 
     @Autowired
-    public UserController(UserService userService, UserCreateFormValidator userCreateFormValidator) {
+    public UserControllerTutorial(UserService userService, UserCreateFormValidator userCreateFormValidator) {
         this.userService = userService;
         this.userCreateFormValidator = userCreateFormValidator;
     }
@@ -63,3 +63,4 @@ public class UserController {
         return "redirect:/users";
     }
 }
+*/

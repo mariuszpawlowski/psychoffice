@@ -4,13 +4,14 @@ import org.hibernate.validator.constraints.NotEmpty;
 import pl.mariuszpawlowski.psychoffice.domain.Role;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 /**
  * Created by mario on 23/08/15.
  */
 public class UserCreateForm {
 
-    @NotEmpty
+    @Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
     private String email = "";
 
     @NotEmpty
@@ -18,6 +19,21 @@ public class UserCreateForm {
 
     @NotEmpty
     private String passwordRepeated = "";
+
+    @NotEmpty
+    private String name = "";
+
+    @NotEmpty
+    private String surname = "";
+
+    @NotEmpty
+    private String phone = "";
+
+    @NotEmpty
+    private String city = "";
+
+    @NotEmpty
+    private String address = "";
 
     @NotNull
     private Role role = Role.USER;
@@ -52,6 +68,46 @@ public class UserCreateForm {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override
