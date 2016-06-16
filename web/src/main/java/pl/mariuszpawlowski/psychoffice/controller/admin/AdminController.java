@@ -15,8 +15,11 @@ public class AdminController {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping("/admin")
-    public String admin() {
-        return "admin/admin";
+    public ModelAndView admin(Model model) {
+        MenuStyles menuStyles = new MenuStyles();
+        menuStyles.setShowClients(true);
+        model.addAttribute(menuStyles);
+        return new ModelAndView("admin/showClients", "menuStyles", menuStyles);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
