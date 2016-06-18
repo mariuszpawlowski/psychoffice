@@ -1,6 +1,6 @@
 package pl.mariuszpawlowski.psychoffice.controller.admin;
 
-import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -14,7 +14,6 @@ import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
 import pl.mariuszpawlowski.psychoffice.domain.validator.UserCreateFormValidator;
 import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 
-import javax.inject.Inject;
 import javax.validation.Valid;
 import java.util.HashMap;
 
@@ -27,7 +26,7 @@ public class UserController {
     private final UserService userService;
     private final UserCreateFormValidator userCreateFormValidator;
 
-    @Inject
+    @Autowired
     public UserController(UserService userService, UserCreateFormValidator userCreateFormValidator) {
         this.userService = userService;
         this.userCreateFormValidator = userCreateFormValidator;
