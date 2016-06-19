@@ -1,10 +1,11 @@
 package pl.mariuszpawlowski.psychoffice.service.user;
 
 
-import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
+import pl.mariuszpawlowski.psychoffice.domain.Role;
 import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
+import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -17,6 +18,8 @@ public interface UserService {
     Optional<User> getUserByEmail(String email);
 
     Iterable<User> getAllUsers();
+
+    List<User> getAllUsersWithRole(Role role);
 
     User create(UserCreateForm form);
 

@@ -13,23 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AdminController {
 
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping("/admin")
-    public ModelAndView admin(Model model) {
-        MenuStyles menuStyles = new MenuStyles();
-        menuStyles.setShowClients(true);
-        model.addAttribute(menuStyles);
-        return new ModelAndView("admin/showClients", "menuStyles", menuStyles);
-    }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping("/admin/showClients")
-    public ModelAndView showClients(Model model) {
-        MenuStyles menuStyles = new MenuStyles();
-        menuStyles.setShowClients(true);
-        model.addAttribute(menuStyles);
-        return new ModelAndView("admin/showClients", "menuStyles", menuStyles);
-    }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping("/admin/showVisits")

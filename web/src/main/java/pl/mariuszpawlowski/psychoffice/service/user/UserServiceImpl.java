@@ -10,6 +10,7 @@ import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
 import pl.mariuszpawlowski.psychoffice.domain.jpa.UserDetails;
 import pl.mariuszpawlowski.psychoffice.repository.UserRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -42,6 +43,11 @@ public class UserServiceImpl implements UserService{
     public Iterable<User> getAllUsers() {
         LOGGER.debug("Getting all users");
         return userRepository.findAll();
+    }
+
+    @Override
+    public List<User> getAllUsersWithRole(Role role) {
+        return userRepository.getAllWithRole(role);
     }
 
     @Override

@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import pl.mariuszpawlowski.psychoffice.domain.Role;
 import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
+import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
 import pl.mariuszpawlowski.psychoffice.domain.validator.UserCreateFormValidator;
 import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 
 import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Mariusz.Pawlowski on 2016-06-10.
@@ -35,6 +39,28 @@ public class UserController {
     @InitBinder("form")
     public void initBinder(WebDataBinder binder) {
         binder.addValidators(userCreateFormValidator);
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping("/admin")
+    public String admin(Model model) {
+        MenuStyles menuStyles = new MenuStyles();
+        menuStyles.setShowClients(true);
+        model.addAttribute(menuStyles);
+        List<User> clients = userService.getAllUsersWithRole(Role.USER);
+        model.addAttribute("clients", clients);
+        return "admin/showClients";
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping("/admin/showClients")
+    public ModelAndView showClients(Model model) {
+        MenuStyles menuStyles = new MenuStyles();
+        menuStyles.setShowClients(true);
+        model.addAttribute(menuStyles);
+        List<User> clients = userService.getAllUsersWithRole(Role.USER);
+        model.addAttribute("clients", clients);
+        return new ModelAndView("admin/showClients", "menuStyles", menuStyles);
     }
 
 
