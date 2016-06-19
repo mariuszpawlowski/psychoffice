@@ -3,10 +3,11 @@ package pl.mariuszpawlowski.psychoffice.service.user;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
+import pl.mariuszpawlowski.psychoffice.domain.Role;
 import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
+import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
+import pl.mariuszpawlowski.psychoffice.domain.jpa.UserDetails;
 import pl.mariuszpawlowski.psychoffice.repository.UserRepository;
 
 import java.util.Optional;
@@ -47,8 +48,19 @@ public class UserServiceImpl implements UserService{
     public User create(UserCreateForm form) {
         User user = new User();
         user.setEmail(form.getEmail());
-        user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
-        user.setRole(form.getRole());
+        //user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
+        user.setRole(Role.USER);
+        user.setUserDetails(getUserDetails(form));
         return userRepository.save(user);
     }
+
+    private UserDetails getUserDetails(UserCreateForm form) {
+        UserDetails userDetails = new UserDetails();
+        userDetails.setCity(form.getCity());
+        userDetails.setName(form.getName());
+        userDetails.setSurname(form.getSurname());
+        userDetails.setPhone(form.getPhone());
+        return userDetails;
+    }
+
 }

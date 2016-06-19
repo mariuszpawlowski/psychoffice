@@ -14,10 +14,8 @@ public class UserCreateForm {
     @Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
     private String email = "";
 
-    @NotEmpty
     private String password = "";
 
-    @NotEmpty
     private String passwordRepeated = "";
 
     @NotEmpty
@@ -32,8 +30,6 @@ public class UserCreateForm {
     @NotEmpty
     private String city = "";
 
-    @NotEmpty
-    private String address = "";
 
     @NotNull
     private Role role = Role.USER;
@@ -100,14 +96,6 @@ public class UserCreateForm {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     @Override
