@@ -68,28 +68,62 @@
 
                             <!-- widget content -->
                             <div class="widget-body no-padding">
-
-                                <form class="smart-form">
+                                <form class="smart-form" role="form" action="#" th:action="@{/admin/addClient}" th:object="${form}" method="post">
                                     <header>
-                                        Standard Form Header
+                                        Dane klienta
                                     </header>
 
                                     <fieldset>
 
                                         <section>
-                                            <label class="label">Extra Small text input</label>
+                                            <label class="label">E-mail</label>
                                             <label class="input">
-                                                <input type="text" class="input-xs"/>
+                                                <input type="text" maxlength="50" th:field="*{email}"/>
                                             </label>
+                                            <label style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error</label>
                                         </section>
 
                                         <section>
-                                            <label class="label">Small text input</label>
+                                            <label class="label">Imię</label>
                                             <label class="input">
-                                                <input type="text" class="input-sm"/>
+                                                <input type="text" maxlength="50" th:field="*{name}"/>
                                             </label>
+                                            <label style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</label>
                                         </section>
-                                        </fieldset>
+
+                                        <section>
+                                            <label class="label">Nazwisko</label>
+                                            <label class="input">
+                                                <input type="text" maxlength="50" th:field="*{surname}" />
+                                            </label>
+                                            <label style="color: red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Error</label>
+                                        </section>
+
+                                        <section>
+                                            <label class="label">Telefon</label>
+                                            <label class="input">
+                                                <input type="text" maxlength="50" th:field="*{phone}"/>
+                                            </label>
+                                            <label style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Error</label>
+                                        </section>
+
+                                        <section>
+                                            <label class="label">Miasto</label>
+                                            <label class="input">
+                                                <input type="text" maxlength="50" th:field="*{city}"/>
+                                            </label>
+                                            <label style="color: red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Error</label>
+                                        </section>
+                                    </fieldset>
+
+                                    <footer>
+                                        <button type="submit" class="btn btn-primary">
+                                            Zapisz
+                                        </button>
+                                        <button type="button" class="btn btn-default" onclick="window.history.back();">
+                                            Confnij
+                                        </button>
+                                    </footer>
                                     </form>
                                 </div>
                 </div>

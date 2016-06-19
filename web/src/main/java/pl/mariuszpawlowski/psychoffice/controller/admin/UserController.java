@@ -3,13 +3,13 @@ package pl.mariuszpawlowski.psychoffice.controller.admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
 import pl.mariuszpawlowski.psychoffice.domain.validator.UserCreateFormValidator;
 import pl.mariuszpawlowski.psychoffice.service.user.UserService;
@@ -40,20 +40,23 @@ public class UserController {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/admin/addClient", method = RequestMethod.GET)
-    public ModelAndView addClientPage() {
+    public String addClientPage(Model model) {
         MenuStyles menuStyles = new MenuStyles();
         menuStyles.setShowAddClient(true);
         HashMap<String, Object> attributes = new HashMap<>();
-        attributes.put("menuStyles", menuStyles);
-        attributes.put("form", new UserCreateForm());
+        model.addAttribute("menuStyles", menuStyles);
+        model.addAttribute("form", new UserCreateForm());
 
-        return new ModelAndView("admin/addClient", attributes);
+        return "admin/addClient";
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/admin/addClient", method = RequestMethod.POST)
-    public String handleUserCreateForm(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult) {
+    public String handleUserCreateForm(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
+            MenuStyles menuStyles = new MenuStyles();
+            menuStyles.setShowAddClient(true);
+            model.addAttribute("menuStyles", menuStyles);
             return "admin/addClient";
         }
         try {
