@@ -60,8 +60,8 @@
                                         <td th:text="${client.userDetails.surname}" />
                                         <td th:text="${client.userDetails.phone}" />
                                         <td th:text="${client.userDetails.city}" />
-                                        <td><a class="btn btn-primary btn-xs" href="javascript:void(0);"><span th:text="#{admin.show.data.clients.table.button.edit}" /></a>
-                                            <a class="btn btn-danger btn-xs" href="javascript:void(0);"><span th:text="#{admin.show.data.clients.table.button.delete}" /></a></td>
+                                        <td><a class="btn btn-primary btn-xs" th:href="@{/admin/editClient(id=${client.id})}"><span th:text="#{admin.show.data.clients.table.button.edit}" /></a>
+                                            <a class="btn btn-danger btn-xs" th:href="@{/admin/deleteClient(id=${client.id})}"><span th:text="#{admin.show.data.clients.table.button.delete}" /></a></td>
                                     </tr>
                                 </tbody>
                             </table>
