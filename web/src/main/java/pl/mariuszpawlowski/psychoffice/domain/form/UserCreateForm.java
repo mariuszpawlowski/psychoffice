@@ -30,6 +30,7 @@ public class UserCreateForm {
     @NotEmpty
     private String city = "";
 
+    private Long id;
 
     @NotNull
     private Role role = Role.USER;
@@ -96,6 +97,14 @@ public class UserCreateForm {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override

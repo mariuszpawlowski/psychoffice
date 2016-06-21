@@ -17,6 +17,7 @@ import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by Mariusz.Pawlowski on 2016-06-10.
@@ -95,10 +96,29 @@ public class UserController {
     public String editClient(@RequestParam("id") String clientId, Model model) {
         MenuStyles menuStyles = new MenuStyles();
         menuStyles.setShowAddClient(true);
-        HashMap<String, Object> attributes = new HashMap<>();
         model.addAttribute("menuStyles", menuStyles);
-        model.addAttribute("form", new UserCreateForm());
-        return "admin/addClient";
+
+
+        Optional<User> user = userService.getUserById(Long.parseLong(clientId));
+        UserCreateForm form = new UserCreateForm();
+        form.setEmail(user.get().getEmail());
+        form.setCity(user.get().getUserDetails().getCity());
+        form.setName(user.get().getUserDetails().getName());
+        form.setSurname(user.get().getUserDetails().getSurname());
+        form.setPhone(user.get().getUserDetails().getPhone());
+        form.setId(user.get().getId());
+        model.addAttribute("form", form);
+        return "admin/editClient";
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value = "/admin/editClient", method = RequestMethod.POST)
+    public String editClientSave(@Valid @ModelAttribute("form") UserCreateForm form, Model model) {
+
+        Optional<User> user = userService.getUserById(form.getId());
+
+
+        return "redirect:/admin/showClients";
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
