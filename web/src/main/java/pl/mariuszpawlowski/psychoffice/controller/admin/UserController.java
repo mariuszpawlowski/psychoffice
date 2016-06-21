@@ -6,10 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.mariuszpawlowski.psychoffice.domain.Role;
 import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
@@ -72,7 +69,6 @@ public class UserController {
         HashMap<String, Object> attributes = new HashMap<>();
         model.addAttribute("menuStyles", menuStyles);
         model.addAttribute("form", new UserCreateForm());
-
         return "admin/addClient";
     }
 
@@ -93,4 +89,24 @@ public class UserController {
         }
         return "redirect:/admin/showClients";
     }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value = "/admin/editClient", method = RequestMethod.GET)
+    public String editClient(@RequestParam("id") String clientId, Model model) {
+        MenuStyles menuStyles = new MenuStyles();
+        menuStyles.setShowAddClient(true);
+        HashMap<String, Object> attributes = new HashMap<>();
+        model.addAttribute("menuStyles", menuStyles);
+        model.addAttribute("form", new UserCreateForm());
+        return "admin/addClient";
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value = "/admin/deleteClient", method = RequestMethod.GET)
+    public String deleteClient(@RequestParam("id") String clientId, Model model) {
+
+        return "";
+    }
+
+
 }
