@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
+import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
 import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 
 
@@ -23,18 +23,18 @@ public class UserCreateFormValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return clazz.equals(UserCreateForm.class);
+        return clazz.equals(User.class);
     }
 
     @Override
     public void validate(Object target, Errors errors) {
         LOGGER.debug("Validating {}", target);
-        UserCreateForm form = (UserCreateForm) target;
-        validatePasswords(errors, form);
+        User form = (User) target;
+        //validatePasswords(errors, form);
     }
 
-    private void validatePasswords(Errors errors, UserCreateForm form) {
-        if (!form.getPassword().equals(form.getPasswordRepeated())) {
+    private void validatePasswords(Errors errors, User form) {
+        if (!form.getPasswordHash().equals(form.getPasswordHash())) {
             errors.reject("password.no_match", "Passwords do not match");
         }
     }

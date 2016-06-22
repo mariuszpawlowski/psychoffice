@@ -8,7 +8,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
 import pl.mariuszpawlowski.psychoffice.domain.validator.UserCreateFormValidator;
 import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 

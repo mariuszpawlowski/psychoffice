@@ -1,8 +1,12 @@
 package pl.mariuszpawlowski.psychoffice.domain.jpa;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import pl.mariuszpawlowski.psychoffice.domain.Role;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 @Entity
@@ -15,6 +19,7 @@ public class User {
     private Long id;
 
     @Column(name = "email", nullable = false, unique = true)
+    @Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
     private String email;
 
     @Column(name = "password_hash", nullable = true)
@@ -25,6 +30,7 @@ public class User {
     private Role role;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @Valid
     private UserDetails userDetails;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")

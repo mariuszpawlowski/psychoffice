@@ -1,8 +1,6 @@
 package pl.mariuszpawlowski.psychoffice.service.user;
 
-
 import pl.mariuszpawlowski.psychoffice.domain.Role;
-import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
 import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
 
 import java.util.List;
@@ -21,6 +19,6 @@ public interface UserService {
 
     List<User> getAllUsersWithRole(Role role);
 
-    User create(UserCreateForm form);
+    User create(User form);
 
 }

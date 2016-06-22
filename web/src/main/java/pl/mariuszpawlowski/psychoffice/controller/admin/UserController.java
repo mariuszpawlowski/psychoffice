@@ -9,7 +9,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.mariuszpawlowski.psychoffice.domain.Role;
-import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
 import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
 import pl.mariuszpawlowski.psychoffice.domain.validator.UserCreateFormValidator;
 import pl.mariuszpawlowski.psychoffice.service.user.UserService;
@@ -69,13 +68,15 @@ public class UserController {
         menuStyles.setShowAddClient(true);
         HashMap<String, Object> attributes = new HashMap<>();
         model.addAttribute("menuStyles", menuStyles);
-        model.addAttribute("form", new UserCreateForm());
+        User form = new User();
+        model.addAttribute("form", form);
         return "admin/addClient";
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/admin/addClient", method = RequestMethod.POST)
-    public String handleUserCreateForm(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult, Model model) {
+    public String handleUserCreateForm(@Valid @ModelAttribute("form") User form, BindingResult bindingResult, Model model) {
+        form.setRole(Role.USER);
         if (bindingResult.hasErrors()) {
             MenuStyles menuStyles = new MenuStyles();
             menuStyles.setShowAddClient(true);
@@ -85,8 +86,8 @@ public class UserController {
         try {
             userService.create(form);
         } catch (Exception e) {
-            bindingResult.reject("email.exists", "Email already exists");
-            return "admin/addClient";
+          //  bindingResult.reject("email.exists", "Email already exists");
+            return "redirect:admin/addClient";
         }
         return "redirect:/admin/showClients";
     }
@@ -98,22 +99,12 @@ public class UserController {
         menuStyles.setShowAddClient(true);
         model.addAttribute("menuStyles", menuStyles);
 
-
-        Optional<User> user = userService.getUserById(Long.parseLong(clientId));
-        UserCreateForm form = new UserCreateForm();
-        form.setEmail(user.get().getEmail());
-        form.setCity(user.get().getUserDetails().getCity());
-        form.setName(user.get().getUserDetails().getName());
-        form.setSurname(user.get().getUserDetails().getSurname());
-        form.setPhone(user.get().getUserDetails().getPhone());
-        form.setId(user.get().getId());
-        model.addAttribute("form", form);
         return "admin/editClient";
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/admin/editClient", method = RequestMethod.POST)
-    public String editClientSave(@Valid @ModelAttribute("form") UserCreateForm form, Model model) {
+    public String editClientSave(@Valid @ModelAttribute("form") User form, Model model) {
 
         Optional<User> user = userService.getUserById(form.getId());
 

@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.mariuszpawlowski.psychoffice.domain.Role;
-import pl.mariuszpawlowski.psychoffice.domain.form.UserCreateForm;
 import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
 import pl.mariuszpawlowski.psychoffice.domain.jpa.UserDetails;
 import pl.mariuszpawlowski.psychoffice.repository.UserRepository;
@@ -51,22 +50,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User create(UserCreateForm form) {
-        User user = new User();
-        user.setEmail(form.getEmail());
-        //user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
-        user.setRole(Role.USER);
-        user.setUserDetails(getUserDetails(form));
-        return userRepository.save(user);
+    public User create(User user) {
+          return userRepository.save(user);
     }
-
-    private UserDetails getUserDetails(UserCreateForm form) {
-        UserDetails userDetails = new UserDetails();
-        userDetails.setCity(form.getCity());
-        userDetails.setName(form.getName());
-        userDetails.setSurname(form.getSurname());
-        userDetails.setPhone(form.getPhone());
-        return userDetails;
-    }
-
 }
