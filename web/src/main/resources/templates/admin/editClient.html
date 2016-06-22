@@ -63,33 +63,33 @@
                                         <section>
                                             <label class="label" th:text="#{admin.add.data.client.form.header.name}" />
                                             <label class="input">
-                                                <input type="text" maxlength="50" th:field="*{name}"/>
+                                                <input type="text" maxlength="50" th:field="*{userDetails.name}"/>
                                             </label>
-                                            <label style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</label>
+                                            <label style="color: red" th:if="${#fields.hasErrors('userDetails.name')}" th:errors="*{userDetails.name}">Error</label>
                                         </section>
 
                                         <section>
                                             <label class="label" th:text="#{admin.add.data.client.form.header.surname}" />
                                             <label class="input">
-                                                <input type="text" maxlength="50" th:field="*{surname}" />
+                                                <input type="text" maxlength="50" th:field="*{userDetails.surname}" />
                                             </label>
-                                            <label style="color: red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Error</label>
+                                            <label style="color: red" th:if="${#fields.hasErrors('userDetails.surname')}" th:errors="*{userDetails.surname}">Error</label>
                                         </section>
 
                                         <section>
                                             <label class="label" th:text="#{admin.add.data.client.form.header.phone}" />
                                             <label class="input">
-                                                <input type="text" maxlength="50" th:field="*{phone}"/>
+                                                <input type="text" maxlength="50" th:field="*{userDetails.phone}"/>
                                             </label>
-                                            <label style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Error</label>
+                                            <label style="color: red" th:if="${#fields.hasErrors('userDetails.phone')}" th:errors="*{userDetails.phone}">Error</label>
                                         </section>
 
                                         <section>
                                             <label class="label" th:text="#{admin.add.data.client.form.header.city}" />
                                             <label class="input">
-                                                <input type="text" maxlength="50" th:field="*{city}"/>
+                                                <input type="text" maxlength="50" th:field="*{userDetails.city}"/>
                                             </label>
-                                            <label style="color: red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Error</label>
+                                            <label style="color: red" th:if="${#fields.hasErrors('userDetails.city')}" th:errors="*{userDetails.city}">Error</label>
                                         </section>
                                     </fieldset>
 

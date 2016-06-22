@@ -19,6 +19,5 @@ public interface UserService {
 
     List<User> getAllUsersWithRole(Role role);
 
-    User create(User form);
-
+    User save(User user);
 }

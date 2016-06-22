@@ -84,7 +84,7 @@ public class UserController {
             return "admin/addClient";
         }
         try {
-            userService.create(form);
+            userService.save(form);
         } catch (Exception e) {
           //  bindingResult.reject("email.exists", "Email already exists");
             return "redirect:admin/addClient";
@@ -93,22 +93,31 @@ public class UserController {
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value = "/admin/editClient", method = RequestMethod.GET)
-    public String editClient(@RequestParam("id") String clientId, Model model) {
+    @RequestMapping(value = "/admin/editClient/{id}", method = RequestMethod.GET)
+    public String editClient(@PathVariable("id") User user, Model model) {
         MenuStyles menuStyles = new MenuStyles();
         menuStyles.setShowAddClient(true);
         model.addAttribute("menuStyles", menuStyles);
-
+      //  User user = userService.getUserById(Long.parseLong(clientId)).get();
+        model.addAttribute("form", user);
         return "admin/editClient";
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/admin/editClient", method = RequestMethod.POST)
-    public String editClientSave(@Valid @ModelAttribute("form") User form, Model model) {
-
-        Optional<User> user = userService.getUserById(form.getId());
-
-
+    public String editClientSave(@Valid @ModelAttribute("form") User form, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            MenuStyles menuStyles = new MenuStyles();
+            menuStyles.setShowAddClient(true);
+            model.addAttribute("menuStyles", menuStyles);
+            return "admin/addClient";
+        }
+        try {
+            userService.save(form);
+        } catch (Exception e) {
+            //  bindingResult.reject("email.exists", "Email already exists");
+            return "redirect:admin/addClient";
+        }
         return "redirect:/admin/showClients";
     }
 
