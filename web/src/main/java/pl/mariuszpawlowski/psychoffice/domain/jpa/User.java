@@ -1,11 +1,9 @@
 package pl.mariuszpawlowski.psychoffice.domain.jpa;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import pl.mariuszpawlowski.psychoffice.domain.Role;
 
 import javax.persistence.*;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.Set;
 
@@ -38,6 +36,10 @@ public class User {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -82,11 +84,25 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", email='" + email.replaceFirst("@.*", "@***") +
-                ", passwordHash='" + passwordHash.substring(0, 10) +
-                ", role=" + role +
-                '}';
+        StringBuffer buffer = new StringBuffer();
+        if (id != null){
+            buffer.append("id: " + id);
+            buffer.append(", ");
+        }
+        if (email != null){
+            buffer.append("email: " + email);
+            buffer.append(", ");
+        }
+        if (passwordHash != null){
+            buffer.append("passwordHash: " + passwordHash);
+            buffer.append(", ");
+        }
+        if (role != null){
+            buffer.append("role: " + role);
+            buffer.append(", ");
+        }
+
+
+        return buffer.toString();
     }
 }

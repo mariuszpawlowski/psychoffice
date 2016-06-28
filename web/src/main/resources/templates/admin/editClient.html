@@ -48,10 +48,13 @@
                             <!-- widget content -->
                             <div class="widget-body no-padding">
                                 <form class="smart-form" role="form" action="#" th:action="@{/admin/editClient}" th:object="${form}" method="post">
+
                                     <header th:text="#{admin.add.data.client.header}" />
 
                                     <fieldset>
-
+                                        <input type="hidden" th:field="*{id}"/>
+                                        <input type="hidden" th:field="*{role}"/>
+                                        <input type="hidden" th:field="*{userDetails.id}"/>
                                         <section>
                                             <label class="label" th:text="#{admin.add.data.client.form.header.email}" />
                                             <label class="input">

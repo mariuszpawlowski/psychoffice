@@ -16,7 +16,6 @@ import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by Mariusz.Pawlowski on 2016-06-10.
@@ -98,7 +97,6 @@ public class UserController {
         MenuStyles menuStyles = new MenuStyles();
         menuStyles.setShowAddClient(true);
         model.addAttribute("menuStyles", menuStyles);
-      //  User user = userService.getUserById(Long.parseLong(clientId)).get();
         model.addAttribute("form", user);
         return "admin/editClient";
     }

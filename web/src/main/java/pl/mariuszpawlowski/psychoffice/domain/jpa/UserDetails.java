@@ -33,6 +33,10 @@ public class UserDetails {
     @NotEmpty
     private String city;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
