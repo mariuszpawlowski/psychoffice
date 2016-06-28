@@ -20,4 +20,6 @@ public interface UserService {
     List<User> getAllUsersWithRole(Role role);
 
     User save(User user);
+
+    void delete(User user);
 }

@@ -120,10 +120,15 @@ public class UserController {
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value = "/admin/deleteClient", method = RequestMethod.GET)
-    public String deleteClient(@RequestParam("id") String clientId, Model model) {
+    @RequestMapping(value = "/admin/deleteClient/{id}", method = RequestMethod.POST)
+    public String deleteClient(@PathVariable("id") User user, Model model) {
 
-        return "";
+        try {
+            //userService.delete(user);
+        } catch (Exception e){
+            return "redirect:/admin/showClients";
+        }
+        return "redirect:/admin/showClients";
     }
 
 

@@ -60,8 +60,14 @@
                                         <td th:text="${client.userDetails.surname}" />
                                         <td th:text="${client.userDetails.phone}" />
                                         <td th:text="${client.userDetails.city}" />
-                                        <td><a class="btn btn-primary btn-xs" th:href="@{/admin/editClient/{id}(id=${client.id})}"><span th:text="#{admin.show.data.clients.table.button.edit}" /></a>
-                                            <a class="btn btn-danger btn-xs" th:href="@{/admin/deleteClient/{id}(id=${client.id})}"><span th:text="#{admin.show.data.clients.table.button.delete}" /></a></td>
+                                        <td>
+                                            <form  action="#" th:action="@{/admin/deleteClient/{id}(id=${client.id})}" method="post">
+                                                <a class="btn btn-primary btn-xs" th:href="@{/admin/editClient/{id}(id=${client.id})}"><span th:text="#{admin.show.data.clients.table.button.edit}" /></a>
+                                                <button type="submit" class="btn btn-danger btn-xs" data-toggle="confirmation">
+                                                    Usuń
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
