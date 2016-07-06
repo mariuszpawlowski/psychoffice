@@ -63,7 +63,12 @@
                                         <td>
                                             <form  action="#" th:action="@{/admin/deleteClient/{id}(id=${client.id})}" method="post">
                                                 <a class="btn btn-primary btn-xs" th:href="@{/admin/editClient/{id}(id=${client.id})}"><span th:text="#{admin.show.data.clients.table.button.edit}" /></a>
-                                                <button type="submit" class="btn btn-danger btn-xs" data-toggle="confirmation">
+                                                <button type="submit"
+                                                        class="btn btn-danger btn-xs"
+                                                        data-toggle="confirm"
+                                                        th:attr="data-title=#{admin.show.data.clients.table.button.delete.window.title},
+                                                        data-message=#{admin.show.data.clients.table.button.delete.window.message} + ${client.email}"
+                                                        data-type="success">
                                                     Usuń
                                                 </button>
                                             </form>

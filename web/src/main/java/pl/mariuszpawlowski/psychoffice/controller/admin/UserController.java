@@ -124,7 +124,7 @@ public class UserController {
     public String deleteClient(@PathVariable("id") User user, Model model) {
 
         try {
-            //userService.delete(user);
+            userService.delete(user);
         } catch (Exception e){
             return "redirect:/admin/showClients";
         }
