@@ -2,6 +2,7 @@ package pl.mariuszpawlowski.psychoffice.domain.jpa;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 /**
  * Created by mario on 19/05/16.
@@ -28,6 +29,9 @@ public class Visit {
     @JoinColumn(name = "client_id", nullable = false)
     private User user;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "visit")
+    private Set<VisitFile> visitFiles;
+
     public LocalDateTime getDate() {
         return date;
     }
@@ -50,5 +54,13 @@ public class Visit {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<VisitFile> getVisitFiles() {
+        return visitFiles;
+    }
+
+    public void setVisitFiles(Set<VisitFile> visitFiles) {
+        this.visitFiles = visitFiles;
     }
 }
