@@ -23,12 +23,68 @@
         <!-- row -->
         <div class="row">
 
-            <div class="superbox col-sm-12">
+            <!-- NEW WIDGET START -->
+            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!-- Widget ID (each widget will need unique ID)-->
+                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2 th:text="#{admin.show.data.visits.title}"></h2>
 
-                <span>show visits</span>
-            </div>
+                    </header>
+                    <div>
+                        <!-- widget edit box -->
+                        <div class="jarviswidget-editbox">
+                            <!-- This area used as dropdown edit box -->
+                        </div>
+                        <!-- end widget edit box -->
+                        <!-- widget content -->
+                        <div class="widget-body no-padding">
+                            <table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
+                                <thead>
+                                <tr>
+                                    <th data-hide="phone" th:text="#{admin.show.data.visits.table.header.id}" />
+                                    <th><span th:text="#{admin.show.data.visits.table.header.date}" /></th>
+                                    <th data-hide="phone"><i class="fa fa-fw fa-envelope text-muted hidden-md hidden-sm hidden-xs"></i> <span th:text="#{admin.show.data.visits.table.header.email}" /></th>
+                                    <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> <span th:text="#{admin.show.data.visits.table.header.name}" /></th>
+                                    <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> <span th:text="#{admin.show.data.visits.table.header.surname}" /></th>
+                                    <th><span th:text="#{admin.show.data.visits.table.header.description}" /></th>
+                                    <th><span th:text="#{admin.show.data.visits.table.header.action}" /></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="visit: ${visits}">
+                                    <td th:text="${visit.id}" />
+                                    <td th:text="" />
+                                    <td th:text="" />
+                                    <td th:text="" />
+                                    <td th:text="" />
+                                    <td th:text="" />
+                                    <td>
+                                        <form  action="#" th:action="@{/admin/deleteVisit/{id}(id=${visit.id})}" method="post">
+                                            <a class="btn btn-primary btn-xs" th:href="@{/admin/editVisit/{id}(id=${visit.id})}"><span th:text="#{admin.show.data.visits.table.button.edit}" /></a>
+                                            <button type="submit"
+                                                    class="btn btn-danger btn-xs"
+                                                    data-toggle="confirm"
+                                                    th:attr="data-title=#{admin.show.data.visits.table.button.delete.window.title},
+                                                        data-message=#{admin.show.data.visits.table.button.delete.window.message} + ${visit.email} + ${visit.date}"
+                                                    data-type="success">
+                                                Usuń
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- end widget content -->
+                    </div>
+                    <!-- end widget div -->
+                </div>
+                <!-- end widget -->
+            </article>
+            <!-- WIDGET END -->
         </div>
-
     </div>
 
 </div>

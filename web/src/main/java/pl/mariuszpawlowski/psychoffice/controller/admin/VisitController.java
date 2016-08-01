@@ -6,21 +6,34 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import pl.mariuszpawlowski.psychoffice.domain.jpa.Visit;
+import pl.mariuszpawlowski.psychoffice.service.user.UserService;
+import pl.mariuszpawlowski.psychoffice.service.visit.VisitService;
 
 /**
- * Created by Mariusz.Pawlowski on 2015-08-11.
+ * Created by Mariusz.Pawlowski on 2016-08-01.
  */
 @Controller
-public class AdminController {
+public class VisitController {
 
+    private final UserService userService;
+    private final VisitService visitService;
 
+    @Autowired
+    public VisitController(UserService userService, VisitService visitService) {
+        this.userService = userService;
+        this.visitService = visitService;
+    }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping("/admin/showVisits")
-    public ModelAndView showVisits() {
+    public ModelAndView showVisits(Model model) {
         MenuStyles menuStyles = new MenuStyles();
         menuStyles.setShowVisits(true);
-        return new ModelAndView("admin/showVisits", "menuStyles", menuStyles);
+        model.addAttribute(menuStyles);
+        Iterable<Visit> visits = visitService.getAllVisits();
+        model.addAttribute("visits", visits);
+        return new ModelAndView("admin/showVisits");
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
@@ -31,5 +44,4 @@ public class AdminController {
         return new ModelAndView("admin/addVisit", "menuStyles", menuStyles);
 
     }
-
 }

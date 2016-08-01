@@ -6,5 +6,5 @@ import pl.mariuszpawlowski.psychoffice.domain.jpa.Visit;
 /**
  * Created by Mariusz.Pawlowski on 2016-05-20.
  */
-public interface VisitorRepository extends CrudRepository<Visit, Long> {
+public interface VisitRepository extends CrudRepository<Visit, Long> {
 }
