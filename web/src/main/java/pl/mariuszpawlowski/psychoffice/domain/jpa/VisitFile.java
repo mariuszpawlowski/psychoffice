@@ -14,10 +14,14 @@ public class VisitFile {
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
-    @Column(name = "file_name")
-    private String fileName;
+    @Column(name = "display_name")
+    private String displayName;
 
-    private byte[] data;
+    @Column(name = "bucket")
+    private String bucket;
+
+    @Column(name = "file_key")
+    private String fileKey;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "visit_id", nullable = false)
@@ -31,27 +35,35 @@ public class VisitFile {
         this.id = id;
     }
 
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public byte[] getData() {
-        return data;
-    }
-
-    public void setData(byte[] data) {
-        this.data = data;
-    }
-
     public Visit getVisit() {
         return visit;
     }
 
     public void setVisit(Visit visit) {
         this.visit = visit;
+    }
+
+    public String getBucket() {
+        return bucket;
+    }
+
+    public void setBucket(String bucket) {
+        this.bucket = bucket;
+    }
+
+    public String getFileKey() {
+        return fileKey;
+    }
+
+    public void setFileKey(String fileKey) {
+        this.fileKey = fileKey;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 }
