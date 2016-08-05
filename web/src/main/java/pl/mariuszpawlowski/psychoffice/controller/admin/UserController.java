@@ -14,7 +14,6 @@ import pl.mariuszpawlowski.psychoffice.domain.validator.UserCreateFormValidator;
 import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -65,7 +64,6 @@ public class UserController {
     public String addClientPage(Model model) {
         MenuStyles menuStyles = new MenuStyles();
         menuStyles.setShowAddClient(true);
-        HashMap<String, Object> attributes = new HashMap<>();
         model.addAttribute("menuStyles", menuStyles);
         User form = new User();
         model.addAttribute("form", form);
