@@ -5,7 +5,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import pl.mariuszpawlowski.psychoffice.domain.form.VisitForm;
 import pl.mariuszpawlowski.psychoffice.domain.jpa.Visit;
 import pl.mariuszpawlowski.psychoffice.service.user.UserService;
 import pl.mariuszpawlowski.psychoffice.service.visit.VisitService;
@@ -37,11 +39,15 @@ public class VisitController {
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping("/admin/addVisit")
-    public ModelAndView addVisit() {
+    @RequestMapping(value = "/admin/addVisit", method = RequestMethod.GET)
+    public String addVisit(Model model) {
         MenuStyles menuStyles = new MenuStyles();
         menuStyles.setShowAddVisit(true);
-        return new ModelAndView("admin/addVisit", "menuStyles", menuStyles);
+        model.addAttribute("menuStyles", menuStyles);
+        VisitForm form = new VisitForm();
+        model.addAttribute("form", form);
+        return "admin/addVisit";
 
     }
+
 }

@@ -21,13 +21,69 @@
 
     <div id="content">
         <!-- row -->
-        <div class="row">
+        <section id="widget-grid" class="">
+            <div class="row">
 
-            <div class="superbox col-sm-12">
+                <!-- NEW COL START -->
+                <article class="col-sm-12 col-md-12 col-lg-6">
 
-                <span>add visit</span>
+                    <!-- Widget ID (each widget will need unique ID)-->
+                    <div class="jarviswidget" id="wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false">
+
+                        <header>
+                            <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+                            <h2 th:text="#{admin.add.data.visit.title}"/>
+
+                        </header>
+
+                        <div>
+
+                            <!-- widget edit box -->
+                            <div class="jarviswidget-editbox">
+                                <!-- This area used as dropdown edit box -->
+
+                            </div>
+                            <!-- end widget edit box -->
+
+                            <!-- widget content -->
+                            <div class="widget-body no-padding">
+                                <form class="smart-form" role="form" action="#" th:action="@{/admin/addVisit}" th:object="${form}" method="post">
+                                    <header th:text="#{admin.add.data.visit.header}" />
+
+                                    <fieldset>
+
+                                        <section>
+                                            <label class="label" th:text="#{admin.add.data.visit.form.header.date}" />
+                                            <label class="input">
+                                                <input type="text" maxlength="50" th:field="*{date}"/>
+                                            </label>
+                                            <label style="color: red" th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Error</label>
+                                        </section>
+
+                                        <section>
+                                            <label class="input"> <i class="icon-append fa fa-calendar"></i>
+                                                <input type="text" name="startdate" id="startdate" placeholder="Expected start date" class="hasDatepicker"/>
+                                            </label>
+                                        </section>
+
+                                    </fieldset>
+
+                                    <footer>
+                                        <button type="submit" class="btn btn-primary">
+                                            Zapisz
+                                        </button>
+                                        <button type="button" class="btn btn-default" onclick="window.history.back();">
+                                            Confnij
+                                        </button>
+                                    </footer>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
-        </div>
+
+        </section>
 
     </div>
 
