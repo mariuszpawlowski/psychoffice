@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <title>PoMoc</title>
+
+    <link rel="shortcut icon" href="img/favicon.png"/>
+    <meta name="description" content=""/>
+
+    <link href="css/preload.css" rel="stylesheet"/>
+    <link href="css/vendors.css" rel="stylesheet"/>
+    <link href="css/syntaxhighlighter/shCore.css" rel="stylesheet"/>
+    <link href="css/style-blue.css" rel="stylesheet" title="default"/>
+    <link href="css/width-full.css" rel="stylesheet" title="default"/>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<div th:replace="fragments/header :: preloader"></div>
+
+<body>
+<div id="sb-site">
+    <div class="boxed">
+
+        <header th:replace="fragments/header :: header"></header>
+        <nav th:replace="fragments/header_elements :: main_menu "></nav>
+
+        <header class="main-header">
+            <div class="container">
+                <h1 class="page-title">O terapii</h1>
+
+                <ol class="breadcrumb pull-right">
+                    <!--      <li><a href="#">Usługi</a></li> -->
+                    <li><a href="#">Terapia</a></li>
+                    <li class="active">O terapii</li>
+                </ol>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <section>
+                        <div class="panel panel-default  animated fadeInDown animation-delay-8">
+                            <div class="panel-body">
+                                <div class="clearfix"></div>
+
+                                <p class="no-margin-top"></p>
+
+                                <div class="clearfix"></div>
+                                <p style="font-weight: bold">Terapia Skoncentrowana na Rozwiązaniach</p>
+                                <p>Terapia polega na szukaniu i wzmacnianiu mocnych stron osoby podejmującej terapie.
+                                    Rolą terapeuty jest podtrzymywanie działań sprzyjających zmianie na lepsze,
+                                    poszerzanie perspektywy, przez psychoedukacje i dialog, na nowe rozwiązania trudnych
+                                    sytuacji w życiu.</p>
+                                <p>Istotnym w podejściu Terapii Skoncentrowanej na Rozwiązaniach jest założenie, że to
+                                    osoba zgłaszająca się do terapeuty posiada najwięcej wiedzy o swoim życiu i może z
+                                    pomocą terapeuty odkryć na nowo kluczowe rozwiązania trudnych sytuacji z którymi się
+                                    zmaga. W trakcie terapii koncertuje się na rozwiązaniach, a nie problemach,
+                                    jednocześnie podtrzymując nadzieję w kliencie na lepsze dziś.</p>
+                                <p>&nbsp;</p>
+                                <p>Filozofia centralna TSR </p>
+                                <p>
+                                    1. Jeśli się coś nie zepsuło - nie naprawiaj tego (nie należy zmieniać tego, co się
+                                    w praktyce sprawdza i przynosi skutek)<br/>
+                                    2. Jeśli coś działa- rób tego więcej (warto powtarzać te czynności i zachowania, co
+                                    do których jesteśmy przekonani, że są pomocne)<br/>
+                                    3. Jeśli coś nie działa, nie rób tego więcej- rób coś innego (jeśli mamy świadomość,
+                                    że coś nie działa, warto się zatrzymać, zwolnić i przyjrzeć jeszcze raz temu, dokąd
+                                    zmierzamy).
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <aside th:replace="fragments/footer :: footer_widgets"></aside>
+
+        <footer th:replace="fragments/footer :: footer"></footer>
+
+    </div> <!-- boxed -->
+</div> <!-- sb-site -->
+
+<div th:replace="fragments/sidebar :: sidebar"></div>
+<div th:replace="fragments/footer :: linkt_top"></div>
+
+
+<script src="js/vendors.js"></script>
+<script src="js/syntaxhighlighter/shCore.js"></script>
+<script src="js/syntaxhighlighter/shBrushXml.js"></script>
+<script src="js/syntaxhighlighter/shBrushJScript.js"></script>
+<script src="js/app.js"></script>
+<script src="js/home_profile.js"></script>
+
+</body>
+
+</html>
+

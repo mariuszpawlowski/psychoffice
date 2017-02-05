@@ -10,16 +10,19 @@
     <div id="status">&nbsp;</div>
 </div>
 
+<!--
 <ul class="top-nav-social hidden-sm" th:fragment="top_nav">
-    <!-- <li><a href="#" class="animated fadeIn animation-delay-6 rss"><i class="fa fa-rss"></i></a></li> -->
+     <li><a href="#" class="animated fadeIn animation-delay-6 rss"><i class="fa fa-rss"></i></a></li>
     <li><a href="#" class="animated fadeIn animation-delay-7 twitter"><i class="fa fa-twitter"></i></a></li>
     <li><a href="#" class="animated fadeIn animation-delay-8 facebook"><i class="fa fa-facebook"></i></a></li>
-    <!-- <li><a href="#" class="animated fadeIn animation-delay-9 google-plus"><i class="fa fa-google-plus"></i></a></li> -->
+     <li><a href="#" class="animated fadeIn animation-delay-9 google-plus"><i class="fa fa-google-plus"></i></a></li>
     <li><a href="#" class="animated fadeIn animation-delay-9 instagram"><i class="fa fa-instagram"></i></a></li>
-    <!-- <li><a href="#" class="animated fadeIn animation-delay-8 vine"><i class="fa fa-vine"></i></a></li> -->
-    <!-- <li><a href="#" class="animated fadeIn animation-delay-7 linkedin"><i class="fa fa-linkedin"></i></a></li> -->
-    <!-- <li><a href="#" class="animated fadeIn animation-delay-6 flickr"><i class="fa fa-flickr"></i></a></li> -->
+     <li><a href="#" class="animated fadeIn animation-delay-8 vine"><i class="fa fa-vine"></i></a></li>
+     <li><a href="#" class="animated fadeIn animation-delay-7 linkedin"><i class="fa fa-linkedin"></i></a></li>
+    <li><a href="#" class="animated fadeIn animation-delay-6 flickr"><i class="fa fa-flickr"></i></a></li>
 </ul>
+
+-->
 
 <div class="dropdown animated fadeInDown animation-delay-11" th:fragment="login_form">
     <a href="/login" sec:authorize="!isAuthenticated()"><i class="fa fa-user"></i> Zaloguj się</a>
@@ -67,9 +70,10 @@
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Terapia</a>
                     <ul class="dropdown-menu dropdown-menu-left">
-                        <li><a href="/who">Dla kogo</a></li>
-                        <li><a href="/why">Dlaczego</a></li>
-                        <li><a href="/when">Kiedy</a></li>
+                        <li><a href="/aboutTherapy">O terapii</a></li>
+                        <li><a href="/forWhom">Dla kogo</a></li>
+                      <!--  <li><a href="/why">Dlaczego</a></li>
+                        <li><a href="/when">Kiedy</a></li> -->
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -81,9 +85,9 @@
                         <li><a href="/aboutPublications">Publikacje naukowe</a></li>-->
                     </ul>
                 </li>
-                <li >
+           <!--     <li >
                     <a href="/blog">Blog</a>
-                </li>
+                </li> -->
                 <li >
                     <a href="/prices">Koszt terapii</a>
                 </li>

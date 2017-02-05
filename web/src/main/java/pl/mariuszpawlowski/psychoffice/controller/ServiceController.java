@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ServiceController {
 
-    @RequestMapping("/onlineConsultation")
-    String onlineConsultation(){
-        return "services/onlineConsultation";
+    @RequestMapping("/aboutTherapy")
+    String aboutTherapy(){
+        return "services/aboutTherapy";
+    }
+
+    @RequestMapping("/forWhom")
+    String forWhom(){
+        return "services/forWhom";
     }
 
     @RequestMapping("/onlineTherapy")
