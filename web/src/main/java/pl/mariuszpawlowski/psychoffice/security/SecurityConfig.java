@@ -43,9 +43,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "/onlineConsultation", "/onlineTherapy",
                         "/directConsultation", "/directDiagnosis", "/directIndividual", "/directPair", "/directGroup",
-                        "/companiesDiagnosis", "/forWhom", "/aboutTherapy",
+                        "/forWhom", "/aboutTherapy",
                         "/prices",
-                        "/aboutBiography", "/aboutQualifications", "/aboutHow", "/aboutPublications",
+                        "/aboutBiography",
                         "/blog", "/faq", "/contact").permitAll()
                 .antMatchers("/css/**").permitAll()
                 .antMatchers("/blog/**").permitAll()
@@ -56,20 +56,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().fullyAuthenticated()
                 .and()
                 .formLogin()
-                    .failureUrl("/login?error")
-                    .successHandler(authenticationSuccessHandler)
-                    .loginPage("/login")
-                    .permitAll()
-                    .and()
+                .failureUrl("/login?error")
+                .successHandler(authenticationSuccessHandler)
+                .loginPage("/login")
+                .permitAll()
+                .and()
                 .logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .logoutSuccessUrl("/")
-                    .invalidateHttpSession(true)
-                    .deleteCookies("JSESSIONID")
-                    .deleteCookies("remember-me")
-                    .permitAll()
-                    .and()
-                    .rememberMe();
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                .deleteCookies("remember-me")
+                .permitAll()
+                .and()
+                .rememberMe();
         http.csrf().disable();
     }
 
