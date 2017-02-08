@@ -1,53 +1,40 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 
 </head>
 <body>
-    <div class="sb-slidebar sb-right" th:fragment="sidebar">
-        <!--<div class="input-group">
-            <input type="text" class="form-control" placeholder="Search..."/>
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-            </span>
-        </div> /input-group -->
+<div class="sb-slidebar sb-right" th:fragment="sidebar">
+    <!--<div class="input-group">
+        <input type="text" class="form-control" placeholder="Search..."/>
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+        </span>
+    </div> /input-group -->
 
-        <ul class="slidebar-menu">
-            <li><a href="/">Strona główna</a></li>
-            <li><a href="/onlineConsultation">Konsultacje online</a></li>
-            <li><a href="/onlineTherapy">Terapia psychologiczna online</a></li>
-            <li><a href="/directConsultation">Konsultacja psychologiczna</a></li>
-            <li><a href="/directDiagnosis">Diagnoza psychologiczna</a></li>
-            <li><a href="/directIndividual">Psychoterapia indywidualna</a></li>
-            <li><a href="/directPair">Psychoterapia par</a></li>
-            <li><a href="/directGroup">Psychoterapia grupowa</a></li>
-            <li><a href="/companiesDiagnosis">Diagnoza</a></li>
-            <li><a href="/companiesTraining">Warsztaty, szkolenia</a></li>
-            <li><a href="/companiesNegotiations">Negocjacje</a></li>
-            <li><a href="/aboutBiography">Biogram</a></li>
-            <li><a href="/aboutQualifications">Kwalifikacje</a></li>
-            <li><a href="aboutHow/">Podejście</a></li>
-            <li><a href="/aboutPublications">Publikacje</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/prices">Cennik</a></li>
-            <li><a href="/faq">FAQ</a></li>
-            <li><a href="/contact">Kontakt</a></li>
-            <li sec:authorize="hasAuthority('USER')"><a href="/clientHome">Konto klienta</a></li>
-        </ul>
+    <ul class="slidebar-menu">
+        <li><a href="/">Strona główna</a></li>
+        <li><a href="/aboutTherapy">O terapii</a></li>
+        <li><a href="/forWhom">Dla kogo</a></li>
+        <li><a href="/aboutBiography">Kim jestem</a></li>
+        <li><a href="/contact">Kontakt</a></li>
+        <li sec:authorize="hasAuthority('USER')"><a href="/clientHome">Konto klienta</a></li>
+    </ul>
 
-        <h3></h3>
-        <div class="slidebar-social-icons">
-            <a href="#" class="social-icon-ar facebook"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="social-icon-ar instagram"><i class="fa fa-instagram"></i></a>
-            <a href="#" class="social-icon-ar twitter"><i class="fa fa-twitter"></i></a>
-            <!-- <a href="#" class="social-icon-ar rss"><i class="fa fa-rss"></i></a>
-            <a href="#" class="social-icon-ar pinterest"><i class="fa fa-pinterest"></i></a>
-            <a href="#" class="social-icon-ar wordpress"><i class="fa fa-wordpress"></i></a>
-            <a href="#" class="social-icon-ar linkedin"><i class="fa fa-linkedin"></i></a>
-            <a href="#" class="social-icon-ar flickr"><i class="fa fa-flickr"></i></a>
-            <a href="#" class="social-icon-ar vine"><i class="fa fa-vine"></i></a>
-            <a href="#" class="social-icon-ar dribbble"><i class="fa fa-dribbble"></i></a> -->
-        </div>
-    </div> <!-- sb-slidebar sb-right -->
+    <h3></h3>
+    <div class="slidebar-social-icons">
+        <!--  <a href="#" class="social-icon-ar facebook"><i class="fa fa-facebook"></i></a>
+         <a href="#" class="social-icon-ar instagram"><i class="fa fa-instagram"></i></a>
+         <a href="#" class="social-icon-ar twitter"><i class="fa fa-twitter"></i></a>
+         <a href="#" class="social-icon-ar rss"><i class="fa fa-rss"></i></a>
+         <a href="#" class="social-icon-ar pinterest"><i class="fa fa-pinterest"></i></a>
+         <a href="#" class="social-icon-ar wordpress"><i class="fa fa-wordpress"></i></a>
+         <a href="#" class="social-icon-ar linkedin"><i class="fa fa-linkedin"></i></a>
+         <a href="#" class="social-icon-ar flickr"><i class="fa fa-flickr"></i></a>
+         <a href="#" class="social-icon-ar vine"><i class="fa fa-vine"></i></a>
+         <a href="#" class="social-icon-ar dribbble"><i class="fa fa-dribbble"></i></a> -->
+    </div>
+</div> <!-- sb-slidebar sb-right -->
 </body>
 </html>
