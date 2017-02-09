@@ -1,13 +1,14 @@
 package pl.mariuszpawlowski.psychoffice.domain.jpa;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Mariusz.Pawlowski on 2016-07-22.
  */
 @Entity
 @Table(name = "visit_file")
-public class VisitFile {
+public class VisitFile implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

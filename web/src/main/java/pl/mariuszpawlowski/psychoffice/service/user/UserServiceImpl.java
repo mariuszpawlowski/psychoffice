@@ -3,13 +3,11 @@ package pl.mariuszpawlowski.psychoffice.service.user;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import pl.mariuszpawlowski.psychoffice.domain.Role;
 import pl.mariuszpawlowski.psychoffice.domain.jpa.User;
 import pl.mariuszpawlowski.psychoffice.repository.UserRepository;
-
-import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by mario on 23/08/15.
@@ -26,28 +24,26 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Optional<User> getUserById(long id) {
+    public User getUserById(long id) {
         LOGGER.debug("Getting user={}", id);
-        return Optional.ofNullable(userRepository.findOne(id));
+        return userRepository.findById(id);
     }
 
     @Override
-    public Optional<User> getUserByEmail(String email) {
+    public User getUserByEmail(String email) {
         LOGGER.debug("Getting user by email={}", email.replaceFirst("@.*", "@***"));
-        return null;
-     //   return userRepository.findOneByEmail(email);
+        return userRepository.findByEmail(email);
     }
 
     @Override
     public Iterable<User> getAllUsers() {
         LOGGER.debug("Getting all users");
-        return userRepository.findAll();
+        return userRepository.findAll(null);
     }
 
     @Override
-    public List<User> getAllUsersWithRole(Role role) {
-        //return userRepository.getAllWithRole(role);
-        return null;
+    public Page<User> getAllUsersWithRole(Role role) {
+        return userRepository.findAllByRole(role.toString(), null);
     }
 
     @Override

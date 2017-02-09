@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import pl.mariuszpawlowski.psychoffice.domain.jpa.Visit;
 import pl.mariuszpawlowski.psychoffice.repository.VisitRepository;
 
-import java.util.Optional;
-
 /**
  * Created by Mariusz.Pawlowski on 2016-08-01.
  */
@@ -21,8 +19,8 @@ public class VisitServiceImpl implements VisitService {
     }
 
     @Override
-    public Optional<Visit> getUserById(long id) {
-        return Optional.ofNullable(visitRepository.findOne(id));
+    public Visit getUserById(long id) {
+        return visitRepository.findById(id);
     }
 
     @Override

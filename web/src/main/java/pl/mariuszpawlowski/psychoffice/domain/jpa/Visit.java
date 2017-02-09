@@ -1,6 +1,7 @@
 package pl.mariuszpawlowski.psychoffice.domain.jpa;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -9,7 +10,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "visits")
-public class Visit {
+public class Visit implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

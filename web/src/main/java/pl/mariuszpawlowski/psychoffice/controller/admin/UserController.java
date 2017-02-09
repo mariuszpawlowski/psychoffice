@@ -42,7 +42,7 @@ public class UserController {
         MenuStyles menuStyles = new MenuStyles();
         menuStyles.setShowClients(true);
         model.addAttribute(menuStyles);
-        List<User> clients = userService.getAllUsersWithRole(Role.USER);
+        List<User> clients = userService.getAllUsersWithRole(Role.USER).getContent();
         model.addAttribute("clients", clients);
         return "admin/showClients";
     }
@@ -53,7 +53,7 @@ public class UserController {
         MenuStyles menuStyles = new MenuStyles();
         menuStyles.setShowClients(true);
         model.addAttribute(menuStyles);
-        List<User> clients = userService.getAllUsersWithRole(Role.USER);
+        List<User> clients = userService.getAllUsersWithRole(Role.USER).getContent();
         model.addAttribute("clients", clients);
         return new ModelAndView("admin/showClients", "menuStyles", menuStyles);
     }
