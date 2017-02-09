@@ -34,7 +34,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public Optional<User> getUserByEmail(String email) {
         LOGGER.debug("Getting user by email={}", email.replaceFirst("@.*", "@***"));
-        return userRepository.findOneByEmail(email);
+        return null;
+     //   return userRepository.findOneByEmail(email);
     }
 
     @Override
@@ -45,7 +46,8 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> getAllUsersWithRole(Role role) {
-        return userRepository.getAllWithRole(role);
+        //return userRepository.getAllWithRole(role);
+        return null;
     }
 
     @Override
