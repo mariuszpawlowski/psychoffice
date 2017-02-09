@@ -11,13 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-
     @RequestMapping("/")
     String index(Authentication authentication) {
-
-
-
         return "index";
-        //return "home";
     }
 }

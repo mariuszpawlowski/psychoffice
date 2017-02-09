@@ -14,19 +14,4 @@ public class AboutMeController {
         return "about/aboutBiography";
     }
 
-    @RequestMapping("/aboutQualifications")
-    String aboutQualifications() {
-        return "about/aboutQualifications";
-    }
-
-    @RequestMapping("/aboutHow")
-    String aboutHow() {
-        return "about/aboutHow";
-    }
-
-    @RequestMapping("/aboutPublications")
-    String aboutPublications() {
-        return "about/aboutPublications";
-    }
-
 }
