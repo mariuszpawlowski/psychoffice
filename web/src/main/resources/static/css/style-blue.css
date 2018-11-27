@@ -5385,7 +5385,7 @@ a.feature-icon:hover {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .profile-header .dark-div {
-  min-height: 350px;
+  min-height: 600px;
   padding: 50px 0;
 }
 .profile-header h1 {
